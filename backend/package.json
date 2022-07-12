@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "MongoDB Backend",
   "main": "index.js",
+  "type": "modules",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,5 +14,9 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "mongodb": "^4.7.0"
+  },
+  "devDependencies": {
+    "@shelf/jest-mongodb": "^3.0.2",
+    "jest": "^28.1.2"
   }
 }
