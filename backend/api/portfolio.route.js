@@ -7,6 +7,7 @@ router.route('/').get((req, res) => res.send("hello world"))
 
 router
     .route('/projects')
-    .post(PortfolioController.apiPostProject)
+        .get(PortfolioController.apiGetProjects)
+        .post(PortfolioController.apiPostProject)
 
 export default router

@@ -25,10 +25,17 @@ export default class PortfolioDAO {
             const projectDoc = {
                 name: projectName,
             }
-
             return await portfolio.insertOne(projectDoc)
         } catch (e) {
-            console.error(`Unable to Post a new project: ${e}`)
+            console.error(`Unable to post a new project: ${e}`)
+        }
+    }
+
+    static async getProjects() {
+        try {
+            return await portfolio.find().toArray() 
+        } catch (e) {
+            console.error(`Unable to get projects: ${e}`)
         }
     }
 

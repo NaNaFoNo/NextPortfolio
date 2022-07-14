@@ -15,4 +15,15 @@ export default class PortfolioController {
 
 
     }
+
+    static async apiGetProjects(req, res, next) {
+        try {
+            const ProjectsResponse = await PortfolioDAO.getProjects()
+            res.json(ProjectsResponse)
+        } catch (e) {
+            res.status(500).json({ error: e.message })
+        }
+
+        
+    }
 }
