@@ -26,4 +26,17 @@ export default class PortfolioController {
 
         
     }
+
+    static async apiDeleteProject(req, res, next) {
+        try {
+            const projectId  = req.body.project_id
+            console.log(projectId)
+
+            const portfolioResponse = await PortfolioDAO.deleteProject(projectId)
+            res.json({ status: "success"})
+        } catch (e) {
+            res.status(500).json({ error: e.message })
+        }
+        
+    }
 }

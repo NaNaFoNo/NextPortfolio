@@ -1,4 +1,4 @@
-import mongodb from 'mongodb'
+import mongodb, { ObjectId } from 'mongodb'
 
 const ObjectID = mongodb.ObjectId
 
@@ -28,6 +28,7 @@ export default class PortfolioDAO {
             return await portfolio.insertOne(projectDoc)
         } catch (e) {
             console.error(`Unable to post a new project: ${e}`)
+            return { error: e }
         }
     }
 
@@ -36,6 +37,18 @@ export default class PortfolioDAO {
             return await portfolio.find().toArray() 
         } catch (e) {
             console.error(`Unable to get projects: ${e}`)
+            return { error: e }
+        }
+    }
+
+    static async deleteProject(projectId) {
+        try {
+            const deleteResponse = await portfolio.deleteOne({ _id: ObjectId(projectId) })
+
+            return deleteResponse
+        } catch (e) {
+            console.error(`Unable to delete project: ${e}`)
+            return { error: e }
         }
     }
 
