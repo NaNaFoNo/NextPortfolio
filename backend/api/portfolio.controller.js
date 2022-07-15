@@ -5,8 +5,18 @@ export default class PortfolioController {
     static async apiPostProject(req, res, next) {
         try {
             const projectName = req.body.project_name
-            
-            const ProjectResponse = await PortfolioDAO.addProject(projectName)
+            const text = req.body.text
+            const gitLink = req.body.git_link
+            const url = req.body.url
+            const stack = req.body.stack
+
+            const ProjectResponse = await PortfolioDAO.addProject(
+                projectName,
+                text,
+                gitLink,
+                url,
+                stack,
+            )
             res.json({ status: "success" })
 
         } catch (e) {
@@ -30,8 +40,7 @@ export default class PortfolioController {
     static async apiDeleteProject(req, res, next) {
         try {
             const projectId  = req.body.project_id
-            console.log(projectId)
-
+            
             const portfolioResponse = await PortfolioDAO.deleteProject(projectId)
             res.json({ status: "success"})
         } catch (e) {

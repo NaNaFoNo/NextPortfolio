@@ -20,10 +20,14 @@ export default class PortfolioDAO {
         }
     }
 
-    static async addProject(projectName) {
+    static async addProject(projectName, text, gitLink, url, stack) {
         try {
             const projectDoc = {
                 name: projectName,
+                description: text,
+                github: gitLink,
+                url: url,
+                stack: stack
             }
             return await portfolio.insertOne(projectDoc)
         } catch (e) {

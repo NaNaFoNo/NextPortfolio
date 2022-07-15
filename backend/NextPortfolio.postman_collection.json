@@ -7,12 +7,31 @@
 	"item": [
 		{
 			"name": "postProject",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response contains jsonData and message is 'Healthy'\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.equal(\"Healthy\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"restaurant_id\": \"5eb3d668b31de5d588f4292a\",\n    \"text\": \"Great Food!\",\n    \"user_id\": \"1234\",\n    \"name\": \"beau\"\n}",
+					"raw": "{\n    \"project_name\": \"Podcast API\",\n    \"text\": \"An API where you can handle your favorite Shows, Guests, Episodes\",\n    \"git_link\": \"https://github.com/NaNaFoNo/FSND-Capstone\",\n    \"url\": \"https://fsnd-capstone2021.herokuapp.com/\",\n    \"stack\": [\"Python\", \"SQLAlchemy\", \"Flask\", \"Auth0\", \"PostgreSQL\"]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -20,7 +39,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/v1/restaurants/reviews",
+					"raw": "http://localhost:5000/api/v1/portfolio/projects",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -29,8 +48,61 @@
 					"path": [
 						"api",
 						"v1",
-						"restaurants",
-						"reviews"
+						"portfolio",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProjects",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/v1/portfolio/projects",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"portfolio",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteProject",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"project_id\": \"62ceffc22170748c4dd45f04\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/portfolio/projects",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"portfolio",
+						"projects"
 					]
 				}
 			},
