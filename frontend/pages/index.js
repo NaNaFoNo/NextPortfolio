@@ -1,6 +1,21 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import ProjectsDataService from '../utils/projects'
+
+
+function retrieveProjects() {
+  ProjectsDataService.getAll()
+    .then(response => {
+      console.log(response.data);
+      console.log(response.data[0].name);
+    })
+    .catch(e => {
+      console.log(e);
+    });
+};
+
+retrieveProjects();
 
 export default function Home() {
   return (
