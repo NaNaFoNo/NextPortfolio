@@ -1,23 +1,33 @@
+import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import ProjectsDataService from '../utils/projects'
 
 
-function retrieveProjects() {
-  ProjectsDataService.getAll()
-    .then(response => {
-      console.log(response.data);
-      console.log(response.data[0].name);
-    })
-    .catch(e => {
-      console.log(e);
-    });
-};
 
-retrieveProjects();
+
+
 
 export default function Home() {
+  const [projects, setProjects] = useState([])
+
+  useEffect(() => {
+    retrieveProjects();
+  }, [])
+
+  const retrieveProjects = () => {
+    ProjectsDataService.getAll()
+      .then(response => {
+        console.log(response.data);
+        setProjects(response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  };
+  
+
   return (
     <div className={styles.container}>
       <Head>
@@ -64,6 +74,13 @@ export default function Home() {
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
           </a>
+        </div>
+        <div>
+          {projects.map((project) => {
+            return (
+              <p key={project._id}>{project.name}</p>
+            )
+          })}
         </div>
       </main>
 
