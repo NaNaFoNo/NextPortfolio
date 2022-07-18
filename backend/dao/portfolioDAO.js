@@ -20,6 +20,15 @@ export default class PortfolioDAO {
         }
     }
 
+    static async getProjects() {
+        try {
+            return await portfolio.find().toArray() 
+        } catch (e) {
+            console.error(`Unable to get projects: ${e}`)
+            return { error: e }
+        }
+    }
+
     static async addProject(projectName, text, gitLink, url, stack) {
         try {
             const projectDoc = {
@@ -36,14 +45,19 @@ export default class PortfolioDAO {
         }
     }
 
-    static async getProjects() {
+    static async updateProject(projectId, data) {
         try {
-            return await portfolio.find().toArray() 
+            const responseUpdate = await portfolio.updateOne(
+                { _id: ObjectId(projectId) },
+                { $set: data }, 
+            )
+            return responseUpdate
         } catch (e) {
-            console.error(`Unable to get projects: ${e}`)
+            console.error(`Unable to update project: ${e}`)
             return { error: e }
         }
     }
+    
 
     static async deleteProject(projectId) {
         try {

@@ -9,6 +9,7 @@ router
     .route('/projects')
         .get(PortfolioController.apiGetProjects)
         .post(PortfolioController.apiPostProject)
+        .put(PortfolioController.apiUpdateProject)
         .delete(PortfolioController.apiDeleteProject)
 
 export default router

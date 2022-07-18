@@ -1,6 +1,17 @@
 import PortfolioDAO from "../dao/portfolioDAO.js"
 
 export default class PortfolioController {
+
+    static async apiGetProjects(req, res, next) {
+        try {
+            const ProjectsResponse = await PortfolioDAO.getProjects()
+            res.json(ProjectsResponse)
+        } catch (e) {
+            res.status(500).json({ error: e.message })
+        }
+
+        
+    }
     
     static async apiPostProject(req, res, next) {
         try {
@@ -26,9 +37,12 @@ export default class PortfolioController {
 
     }
 
-    static async apiGetProjects(req, res, next) {
+    static async apiUpdateProject(req, res, next) {
         try {
-            const ProjectsResponse = await PortfolioDAO.getProjects()
+            const projectId  = req.body.project_id
+            const data = req.body.data
+            console.log(data)
+            const ProjectsResponse = await PortfolioDAO.updateProject(projectId, data)
             res.json(ProjectsResponse)
         } catch (e) {
             res.status(500).json({ error: e.message })
