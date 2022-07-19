@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.css'
 import ProjectsDataService from '../utils/projects'
 
 
-
+import ProjectCard from '../components/ProjectCard'
 
 
 
@@ -48,17 +48,7 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          {projects.map((project) => {
-            return (
-              <div key={project._id}>
-                <a href={project.github} className={styles.card}>
-                  <h2>{project.name} &rarr;</h2>
-                  <p>{project.description}</p>
-                </a>
-              </div>
-              
-            )
-          })}
+          {projects.map((project) => <ProjectCard projectData={project} key={project._id}/>)}
         </div>
       </main>
 
