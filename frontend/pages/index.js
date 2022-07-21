@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react'
 import styles from '../styles/Home.module.css'
 import ProjectsDataService from '../utils/projects'
+import {
+  Wrap
+} from '@chakra-ui/react';
 
 
 import ProjectCard from '../components/ProjectCard'
@@ -34,9 +37,9 @@ export default function Home() {
       <p className={styles.description}>
         This is a practice Project for working with Next and using a MongoDB Backend
       </p>
-      <div className={styles.grid}>
+      <Wrap spacing={'30px'} align={'center'} justify={'center'}>
         {projects.map((project) => <ProjectCard projectData={project} key={project._id}/>)}
-      </div>
+      </Wrap>
     </div>
   )
 }
