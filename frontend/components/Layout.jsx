@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
                 <meta name="description" content="Next MERN-Portfolio" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Box maxWidth="1280px" m="auto">
+            <Box m="auto"> {/* maxWidth="1280px" */}
                 <header>
                     <Navbar />
                 </header>
