@@ -61,6 +61,7 @@ const ProjectCard = ({ projectData: { name, description, image, stack }}) => {
         <Wrap align={'center'} justify={'center'} direction={'row'} mt={6} h={'70px'}>
           {stack.map((tech) => (
             <Badge
+              key={tech}
               px={2}
               py={1}
               bg={useColorModeValue('gray.200', 'gray.800')}

@@ -1,22 +1,20 @@
 import React from 'react';
-import Image from 'next/image'
-import { Box } from '@chakra-ui/react';
+import { 
+  Box,
+  Text, 
+  useColorModeValue,
+ } from '@chakra-ui/react';
 
-import styles from '../styles/Home.module.css'
 
 const Footer = () => {
   return (
-    <Box textAlign="center" p="5" color="gray.600" borderTop="1px" borderColor="gray.300">
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
+    <Box
+      bg={useColorModeValue('gray.50', 'gray.900')}
+      color={useColorModeValue('gray.700', 'gray.200')}
+      height={'5rem'}
+      justifyContent={'center'}
+    >
+      <Text align={'center'} pt={'4'}>© 2022 NaNaFo. All rights reserved</Text>  
     </Box>
   )
 }

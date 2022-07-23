@@ -54,6 +54,7 @@ const Navbar = () => {
                 display={{ base: 'none', md: 'flex' }}>
                 {Links.map((link) => (
                   <Link
+                    key={link}
                     px={2}
                     py={1}
                     rounded={'md'}
@@ -102,6 +103,7 @@ const Navbar = () => {
             <Stack as={'nav'} spacing={4}>
               {Links.map((link) => (
                 <Link
+                  key={link}
                   px={2}
                   py={1}
                   rounded={'md'}

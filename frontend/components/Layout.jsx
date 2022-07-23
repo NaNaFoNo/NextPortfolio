@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
                 <main className={styles.main}>
                     {children}
                 </main>
-                <footer className={styles.footer}>
+                <footer>
                     <Footer />
                 </footer>
             </Box>
