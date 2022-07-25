@@ -7,7 +7,6 @@ import {
   Heading,
   Text,
   Stack,
-  Badge,
   useColorModeValue,
   Wrap,
   IconButton,
@@ -17,6 +16,8 @@ import {
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { BsGithub } from 'react-icons/bs'
 
+import TechIcon from "./TechIcon";
+
 
 const ProjectCard = ({ projectData: { name, description, image, stack }}) => {
   return (
@@ -25,7 +26,7 @@ const ProjectCard = ({ projectData: { name, description, image, stack }}) => {
       <Box
         maxW={'445px'}
         w={'full'}
-        bg={useColorModeValue('white', 'gray.900')}
+        bg={useColorModeValue('white', 'gray.800')}
         boxShadow={'2xl'}
         rounded={'md'}
         p={6}
@@ -41,18 +42,18 @@ const ProjectCard = ({ projectData: { name, description, image, stack }}) => {
             <Flex flexDir={'column'}>
               <Link href='https://chakra-ui.com' isExternal m={'1'}>
                 <IconButton
-                  colorScheme='teal'
+                  colorScheme='blue'
                   aria-label='Call Segun'
                   size='sm'
-                  icon={<ExternalLinkIcon />}
+                  icon={<ExternalLinkIcon size={'1.2rem'}/>}
                 />
               </Link>
               <Link href='https://chakra-ui.com' isExternal m={'1'}>
                 <IconButton
-                  colorScheme='teal'
+                  colorScheme='blue'
                   aria-label='Call Segun'
                   size='sm'
-                  icon={<BsGithub />}
+                  icon={<BsGithub size={'1.2rem'}/>}
                 />
               </Link>
             </Flex>
@@ -64,17 +65,7 @@ const ProjectCard = ({ projectData: { name, description, image, stack }}) => {
           />
         </Box>
         <Stack>
-          <Box
-            w='125px'
-            h='20px'
-            pos='relative'
-          >
-            <Image 
-              src={'https://pyheroku-badge.herokuapp.com/?app=travel-app-fend21&style=plastic'}
-              layout="fill"
-              objectFit="contain"
-            />
-          </Box>
+          
           <Heading
             color={useColorModeValue('gray.700', 'white')}
             fontSize={'2xl'}
@@ -85,17 +76,11 @@ const ProjectCard = ({ projectData: { name, description, image, stack }}) => {
             {description}
           </Text>
         </Stack>
-        <Wrap align={'center'} justify={'center'} direction={'row'} mt={6} h={'70px'}>
+        <Wrap align={'center'} justify={'space-around'} direction={'row'} mt={6} h={'70px'}>
           {stack.map((tech) => (
-            <Badge
-              key={tech}
-              px={2}
-              py={1}
-              bg={useColorModeValue('gray.200', 'gray.800')}
-              fontWeight={'400'}>
-              {tech}
-              </Badge>
+              <TechIcon techName= {tech}/>
           ))}
+          
         </Wrap>
       </Box>
     </Center>      
