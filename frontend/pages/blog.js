@@ -21,7 +21,7 @@ const BlogPage = () => {
       <Box
         marginTop={{ base: '1', sm: '5' }}
         display="flex"
-        flexDirection={{ base: 'column', sm: 'row' }}
+        flexDirection={{ sm: 'row', base: 'column' }}
         justifyContent="space-between">
         <Box
           display="flex"
@@ -88,6 +88,70 @@ const BlogPage = () => {
       </Heading>
       <Divider marginTop="5" />
       <Wrap spacing="30px" marginTop="5">
+        <WrapItem width={{ base: '100%', sm: '45%', md: '45%', lg: '30%' }}>
+          <Box w="100%">
+            <Box borderRadius="lg" overflow="hidden">
+              <Link textDecoration="none" _hover={{ textDecoration: 'none' }}>
+                <Image
+                  transform="scale(1.0)"
+                  src={
+                    'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'
+                  }
+                  alt="some text"
+                  objectFit="contain"
+                  width="100%"
+                  transition="0.3s ease-in-out"
+                  _hover={{
+                    transform: 'scale(1.05)',
+                  }}
+                />
+              </Link>
+            </Box>
+            <Heading fontSize="xl" marginTop="2">
+              <Link textDecoration="none" _hover={{ textDecoration: 'none' }}>
+                blog article title
+              </Link>
+            </Heading>
+            <Text as="p" fontSize="md" marginTop="2">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+            nisi ut aliquip ex ea commodo consequat. 
+            </Text>
+          </Box>
+        </WrapItem>
+        <WrapItem width={{ base: '100%', sm: '45%', md: '45%', lg: '30%' }}>
+          <Box w="100%">
+            <Box borderRadius="lg" overflow="hidden">
+              <Link textDecoration="none" _hover={{ textDecoration: 'none' }}>
+                <Image
+                  transform="scale(1.0)"
+                  src={
+                    'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'
+                  }
+                  alt="some text"
+                  objectFit="contain"
+                  width="100%"
+                  transition="0.3s ease-in-out"
+                  _hover={{
+                    transform: 'scale(1.05)',
+                  }}
+                />
+              </Link>
+            </Box>
+            <Heading fontSize="xl" marginTop="2">
+              <Link textDecoration="none" _hover={{ textDecoration: 'none' }}>
+                blog article title
+              </Link>
+            </Heading>
+            <Text as="p" fontSize="md" marginTop="2">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+            nisi ut aliquip ex ea commodo consequat. 
+            </Text>
+          </Box>
+        </WrapItem>
         <WrapItem width={{ base: '100%', sm: '45%', md: '45%', lg: '30%' }}>
           <Box w="100%">
             <Box borderRadius="lg" overflow="hidden">

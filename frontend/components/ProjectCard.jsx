@@ -3,18 +3,25 @@ import Image from 'next/image';
 import {
   Box,
   Center,
+  Flex,
   Heading,
   Text,
   Stack,
   Badge,
   useColorModeValue,
-  Wrap
+  Wrap,
+  IconButton,
+  Link
 } from '@chakra-ui/react';
+
+import { ExternalLinkIcon } from '@chakra-ui/icons'
+import { BsGithub } from 'react-icons/bs'
 
 
 const ProjectCard = ({ projectData: { name, description, image, stack }}) => {
   return (
     <Center py={6}>
+      
       <Box
         maxW={'445px'}
         w={'full'}
@@ -30,6 +37,26 @@ const ProjectCard = ({ projectData: { name, description, image, stack }}) => {
           mx={-6}
           mb={6}
           pos={'relative'}>
+          <Box pos={'absolute'} zIndex={'2'} right={'2'} top={'1'}>
+            <Flex flexDir={'column'}>
+              <Link href='https://chakra-ui.com' isExternal m={'1'}>
+                <IconButton
+                  colorScheme='teal'
+                  aria-label='Call Segun'
+                  size='sm'
+                  icon={<ExternalLinkIcon />}
+                />
+              </Link>
+              <Link href='https://chakra-ui.com' isExternal m={'1'}>
+                <IconButton
+                  colorScheme='teal'
+                  aria-label='Call Segun'
+                  size='sm'
+                  icon={<BsGithub />}
+                />
+              </Link>
+            </Flex>
+          </Box>
           <Image
             src={image}
             layout={'fill'}
