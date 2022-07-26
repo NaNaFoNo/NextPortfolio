@@ -19,7 +19,7 @@ import { BsGithub } from 'react-icons/bs'
 import TechIcon from "./TechIcon";
 
 
-const ProjectCard = ({ projectData: { name, description, image, stack }}) => {
+const ProjectCard = ({ projectData: { name, description, image, stack, github, url }}) => {
   return (
     <Center py={6}>
       
@@ -40,15 +40,18 @@ const ProjectCard = ({ projectData: { name, description, image, stack }}) => {
           pos={'relative'}>
           <Box pos={'absolute'} zIndex={'2'} right={'2'} top={'1'}>
             <Flex flexDir={'column'}>
-              <Link href='https://chakra-ui.com' isExternal m={'1'}>
-                <IconButton
-                  colorScheme='blue'
-                  aria-label='Call Segun'
-                  size='sm'
-                  icon={<ExternalLinkIcon size={'1.2rem'}/>}
-                />
-              </Link>
-              <Link href='https://chakra-ui.com' isExternal m={'1'}>
+              {url && 
+                <Link href={url} isExternal m={'1'}>
+                  <IconButton
+                    colorScheme='blue'
+                    aria-label='Call Segun'
+                    size='sm'
+                    icon={<ExternalLinkIcon size={'1.2rem'}/>}
+                  />
+                </Link>
+              }
+              
+              <Link href= {github} isExternal m={'1'}>
                 <IconButton
                   colorScheme='blue'
                   aria-label='Call Segun'
