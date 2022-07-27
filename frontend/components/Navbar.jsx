@@ -62,7 +62,7 @@ const Navbar = () => {
                       textDecoration: 'none',
                       bg: useColorModeValue('gray.200', 'gray.700'),
                     }}
-                    href={ link.toLowerCase() }>
+                    href={ link =='Home' ? '/' : link.toLowerCase() }>
                     {link}
                   </Link>
                 ))}
