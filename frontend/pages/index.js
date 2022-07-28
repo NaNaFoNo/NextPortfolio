@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 
 import ProjectsDataService from '../utils/projects'
 import {
-  SimpleGrid,
+  Grid,
   GridItem,
   Box,
   Container,
@@ -14,38 +14,17 @@ import {
   Highlight,
 } from '@chakra-ui/react';
 
-
-import ProjectCard from '../components/ProjectCard'
-
-const heading = [ "Welcome,", "I'm Andreas Vieten.", "A Graduated", "Blockchain Developer", "@Udacity"]
+const heading = [ "Welcome,", "I'm Andreas Vieten.", "Graduated", "Blockchain-/", "Web-Developer", "@Udacity"]
 
 export default function Home() {
-  const [projects, setProjects] = useState([])
-
-  useEffect(() => {
-    retrieveProjects();
-  }, [])
-
-  const retrieveProjects = () => {
-    ProjectsDataService.getAll()
-      .then(response => {
-        console.log(response.data);
-        setProjects(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  };
-  
-
   return (
-    <SimpleGrid
-      columns={[1, null, 2]}
-      gap={6}
+    <Grid
+      templateAreas={[`"b""a"`, null, `"a b"`]}
+      gridTemplateColumns={['1fr', null,'repeat(2, 1fr)']} 
       width={'100%'}
       minHeight={'86vh'}
     >
-      <GridItem colSpan={1} pos={'relative'} display='flex'>
+      <GridItem colSpan={1} pos={'relative'} display='flex' area={'a'}>
         <Box h='100%' w='65%' pos={'absolute'} zIndex={'-1'} bg='gray.700' clipPath={'polygon(0 0, 46% 0, 79% 100%, 0% 100%)'}>
           
         </Box>
@@ -59,20 +38,20 @@ export default function Home() {
           />
         </Container>
       </GridItem>
-      <GridItem colSpan={1} display='flex'>
-        <Container justifyContent='center' centerContent>
+      <GridItem colSpan={1} display='flex' area={'b'}>
+        <Container justifyContent='center' centerContent mt={4}>
           {heading.map((text) => (
-            <Heading>
+            <Heading size={['lg', null, 'lg', 'xl']}>
               <Highlight
-                query={['Andreas Vieten', 'Blockchain Developer']}
-                styles={{ px: '2', py: '1', rounded: 'full', bg: 'teal.100', textTransform: 'uppercase' }}
+                query={['Andreas Vieten', 'Blockchain-/','Web-Developer']}
+                styles={{ color:'#f79412', textTransform: 'uppercase' }}
               >
                 {text}
               </Highlight>
             </Heading>
           ))}
           
-          <Text pt={12}>
+          <Text p={6} mt={4}>
               Formerly Automotive Engineer turning Blockchain Developer. Leaving my comfort zone 
               and taking an asymmetric bet on the future. If you want to know more 
               about my journey into the rabbit hole, check out my site.
@@ -80,6 +59,6 @@ export default function Home() {
         </Container>
       </GridItem>
 
-    </SimpleGrid>
+    </Grid>
   )
 }
