@@ -12,7 +12,6 @@ import {
   Heading,
   Text,
   Highlight,
-  textDecoration
 } from '@chakra-ui/react';
 
 

@@ -74,8 +74,9 @@ const Navbar = () => {
                   {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
                 </Button>
               
-                <Menu>
+                <Menu >
                   <MenuButton
+                    display={['none', null, 'block']}
                     as={Button}
                     rounded={'full'}
                     variant={'link'}
@@ -94,6 +95,7 @@ const Navbar = () => {
                     <MenuItem>LinkedIn</MenuItem>
                   </MenuList>
                 </Menu>
+
               </HStack>  
             </Flex>
           </Flex>
