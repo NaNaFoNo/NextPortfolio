@@ -79,7 +79,7 @@ const ProjectCard = ({ projectData: { name, description, image, stack, github, u
             {description}
           </Text>
         </Stack>
-        <Wrap align={'center'} justify={'space-around'} direction={'row'} mt={6} h={'70px'}>
+        <Wrap align={'center'} justify={'space-around'} direction={'row'} mt={6} h={'auto'}>
           {stack.map((tech) => (
               <TechIcon techName= {tech}/>
           ))}

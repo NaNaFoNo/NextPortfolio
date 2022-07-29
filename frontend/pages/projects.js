@@ -32,10 +32,10 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>
-        Welcome to my Portfolio
+        My Projects
       </h1>
       <p className={styles.description}>
-        This is a practice Project for working with Next and using a MongoDB Backend
+        Take a look at some of my work
       </p>
       <Wrap spacing={'30px'} align={'center'} justify={'center'}>
         {projects.map((project) => <ProjectCard projectData={project} key={project._id}/>)}
