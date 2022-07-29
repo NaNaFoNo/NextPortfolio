@@ -20,7 +20,6 @@ export default function Home() {
   const retrieveProjects = () => {
     ProjectsDataService.getAll()
       .then(response => {
-        console.log(response.data);
         setProjects(response.data);
       })
       .catch(e => {

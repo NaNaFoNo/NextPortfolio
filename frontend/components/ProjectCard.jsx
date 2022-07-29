@@ -65,6 +65,7 @@ const ProjectCard = ({ projectData: { name, description, image, stack, github, u
             src={image}
             layout={'fill'}
             objectFit={'cover'}
+            priority={true}
           />
         </Box>
         <Stack>
@@ -80,8 +81,8 @@ const ProjectCard = ({ projectData: { name, description, image, stack, github, u
           </Text>
         </Stack>
         <Wrap align={'center'} justify={'space-around'} direction={'row'} mt={6} h={'auto'}>
-          {stack.map((tech) => (
-              <TechIcon techName= {tech}/>
+          {stack.map((tech, index) => (
+              <TechIcon techName= {tech} key={index}/>
           ))}
           
         </Wrap>
