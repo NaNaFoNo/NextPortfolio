@@ -1,8 +1,3 @@
-import { useState, useEffect } from 'react'
-
-
-
-import ProjectsDataService from '../utils/projects'
 import {
   Grid,
   GridItem,
@@ -11,10 +6,8 @@ import {
   Image,
   Heading,
   Text,
-  Highlight,
 } from '@chakra-ui/react';
 
-const heading = [ "Welcome,", "I'm Andreas Vieten.", "Graduated", "Blockchain-/", "Web-Developer", "@Udacity"]
 
 export default function Home() {
   return (
@@ -40,16 +33,15 @@ export default function Home() {
       </GridItem>
       <GridItem colSpan={1} display='flex' area={'b'}>
         <Container justifyContent='center' centerContent mt={4}>
-          {heading.map((text) => (
-            <Heading size={['lg', null, 'lg', 'xl']}>
-              <Highlight
-                query={['Andreas Vieten', 'Blockchain-/','Web-Developer']}
-                styles={{ color:'#f79412', textTransform: 'uppercase' }}
-              >
-                {text}
-              </Highlight>
-            </Heading>
-          ))}
+          <Heading noOfLines={6}>
+              Welcome,<br/>
+              I'm <span style={ {color: '#f79412'} }>ANDREAS VIETEN.</span> 
+              <br/>
+              Graduated
+              <br/>
+              <span style={ {color: '#f79412'} }>BLOCKCHAIN- /<br/>WEB-DEVELOPER</span><br/>
+              @Udacity
+          </Heading>
           
           <Text p={6} mt={4}>
               Formerly Automotive Engineer turning Blockchain Developer. Leaving my comfort zone 
