@@ -14,7 +14,7 @@ const Footer = () => {
       height={'5rem'}
       justifyContent={'center'}
     >
-      <Text align={'center'} pt={'4'}>© 2022 NaNaFo. All rights reserved</Text>  
+      <Text align={'center'} pt={'4'}>Made with &#x1F9E1; by NaNaFo 2022</Text>  
     </Box>
   )
 }
