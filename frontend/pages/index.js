@@ -31,9 +31,9 @@ export default function Home() {
           />
         </Container>
       </GridItem>
-      <GridItem colSpan={1} display='flex' area={'b'}>
-        <Container justifyContent='center' centerContent mt={4}>
-          <Heading noOfLines={6}>
+      <GridItem colSpan={1} display='flex' flexDirection={'column'} justifyContent={'center'} area={'b'} m={'4rem'} >
+        
+          <Heading mb={6}>
               Welcome,<br/>
               I'm <span style={ {color: '#f79412'} }>ANDREAS VIETEN.</span> 
               <br/>
@@ -43,12 +43,12 @@ export default function Home() {
               @Udacity
           </Heading>
           
-          <Text p={6} mt={4}>
-              Formerly Automotive Engineer turning Blockchain Developer. Leaving my comfort zone 
-              and taking an asymmetric bet on the future. If you want to know more 
-              about my journey into the rabbit hole, check out my site.
+          <Text maxWidth={'75%'}>
+              Formerly Automotive Engineer turning Blockchain Developer. 
+              Leaving my comfort zone and taking an asymmetric bet on the future. 
+              If you want to know more about my journey into the rabbit hole, check out my site.
           </Text>
-        </Container>
+        
       </GridItem>
 
     </Grid>
