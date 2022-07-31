@@ -5,8 +5,72 @@ import {
   Grid,
   GridItem,
   Box,
+  Center,
   Divider,
+  Stack,
+  useColorModeValue
+  
 } from '@chakra-ui/react'
+
+const stats = [
+  {
+    _id: '1',
+    number: '1.5+',
+    description: 'Years of continuous Programming'
+  },
+  {
+    _id: '2',
+    number: '4+',
+    description: 'Graduated Programming Courses'
+  },
+  {
+    _id: '3',
+    number: '30+',
+    description: 'Hours of Coding / last Month'
+  },
+]
+
+const StatCard = ({ statData: { number, description }}) => {
+  return (
+    <>
+      <Box
+        
+        
+        bg={useColorModeValue('white', 'gray.900')}
+        boxShadow={'xl'}
+        rounded={'md'}
+        p={4}
+        overflow={'hidden'}
+      >
+        <Stack  direction={'column'} spacing={4} >
+          <Heading>{number}</Heading>
+          <Stack direction={'row'} spacing={2} fontSize={'sm'} pos={'relative'}>
+            <Box
+              _before={{ 
+                content: '" "',
+                position: 'absolute',
+                left: '0',
+                top: '15px',
+                width: '2rem',
+                height: '2px',
+                backgroundColor: '#f79412'
+              }}
+              pl={'3rem'}
+              pb={'0'}
+              pos={'relative'}
+              textTransform={'uppercase'}
+              letterSpacing={'2px'}
+              fontSize={'1.2rem'}
+            >
+              {description}
+            </Box>
+          </Stack>  
+        </Stack>
+      </Box>
+    </>
+  )
+  
+}
 
 export default function about() {
   return (
@@ -18,6 +82,7 @@ export default function about() {
         minHeight={'75vh'}
         gap={8}
         p={'4rem'}
+        justifyItems={'center'}
       >
         <GridItem>
           <Heading mb={4}>My Summary</Heading>
@@ -35,10 +100,16 @@ export default function about() {
           </Text>
         </GridItem>
         <GridItem>
-          <Flex>
           
-
-          </Flex>
+            
+              <Grid
+                gridTemplateColumns={{ base: '1fr', '2xl': 'repeat(2, 1fr)' }}
+                gap={6}
+                p={'2.5rem 0'}
+              > 
+                {stats.map((stat) => <StatCard statData={stat} key={stat._id}/>)}               
+              </Grid>
+           
         </GridItem> 
       </Grid>
       <Divider />
