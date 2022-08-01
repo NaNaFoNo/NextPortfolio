@@ -5,16 +5,18 @@ import {
   Grid,
   GridItem,
   Box,
-  Center,
+  Badge,
   Divider,
   Stack,
   useColorModeValue
   
 } from '@chakra-ui/react'
 
+import ExternalLinkIcon from '@chakra-ui/icons'
+
 const stats = [
   {
-    _id: '1',
+    _id: 'stat1',
     number: '1.5+',
     description: 'Years of continuous Programming'
   },
@@ -30,18 +32,47 @@ const stats = [
   },
 ]
 
-const StatCard = ({ statData: { number, description }}) => {
+const timelineItems = [
+  {
+    _id: 'time1',
+    name: 'Intro to Programming',
+    start: '04/2021',
+    end: '06/2021',
+    source: 'Udacity',
+    description: 'Certificate of Completion',
+    link: 'https://graduation.udacity.com/confirm/DCPF7QMZ'
+  },
+  {
+    _id: 'time1',
+    name: 'Front End Web Developer',
+    start: '06/2021',
+    end: '08/21',
+    source: 'Udacity',
+    description: 'Certificate of Completion',
+    link: 'https://graduation.udacity.com/confirm/QGNZJGAP'
+  },
+]
+
+const Card =({ children }) => {
   return (
     <>
       <Box
-        
-        
         bg={useColorModeValue('white', 'gray.900')}
         boxShadow={'xl'}
         rounded={'md'}
         p={4}
         overflow={'hidden'}
       >
+        {children}
+      </Box>
+    </>
+  )
+}
+
+const StatCard = ({ statData: { number, description }}) => {
+  return (
+    <>
+      <Card>
         <Stack  direction={'column'} spacing={4} >
           <Heading>{number}</Heading>
           <Stack direction={'row'} spacing={2} fontSize={'sm'} pos={'relative'}>
@@ -66,10 +97,46 @@ const StatCard = ({ statData: { number, description }}) => {
             </Box>
           </Stack>  
         </Stack>
-      </Box>
+      </Card>
     </>
   )
-  
+}
+
+const TimelineCard =({ timeData: { name, start, end, source, description, link }}) => {
+  return (
+    <>
+      <Card>
+        {/* Icon */}
+        <Badge
+          px={2}
+          py={1}
+          bg={useColorModeValue('gray.50', 'gray.800')}
+          fontWeight={'400'}
+        >
+            {start}-{end}
+        </Badge>
+        <Heading >
+          {name}
+          <br />
+          <Box as={'span'}  >
+            - {source}
+          </Box>
+        </Heading>
+        <Box as='p'>
+          {description}
+         {/*  {link && 
+            <Box as='a' href={{ link }}>
+              <ExternalLinkIcon />
+            </Box>
+          } */}
+        </Box>
+        
+
+
+
+      </Card>
+    </>
+  )
 }
 
 export default function about() {
@@ -79,7 +146,6 @@ export default function about() {
       <Grid
         gridTemplateColumns={['1fr', null,'repeat(2, 1fr)']} 
         width={'100%'}
-        minHeight={'75vh'}
         gap={8}
         p={'4rem'}
         justifyItems={'center'}
@@ -100,20 +166,29 @@ export default function about() {
           </Text>
         </GridItem>
         <GridItem>
-          
-            
-              <Grid
-                gridTemplateColumns={{ base: '1fr', '2xl': 'repeat(2, 1fr)' }}
-                gap={6}
-                p={'2.5rem 0'}
-              > 
-                {stats.map((stat) => <StatCard statData={stat} key={stat._id}/>)}               
-              </Grid>
-           
+          <Grid
+            gridTemplateColumns={{ base: '1fr', '2xl': 'repeat(2, 1fr)' }}
+            gap={6}
+            p={'2.5rem 0'}
+          > 
+            {stats.map((stat) => <StatCard statData={stat} key={stat._id}/>)}               
+          </Grid>
         </GridItem> 
       </Grid>
+
       <Divider />
-      <Box>Text</Box>
+      <Box p={'0 1rem 5rem'}>
+        <Heading>My code Timeline</Heading>
+        <Grid
+          gridTemplateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }}
+          gap={['2rem', null ,'3rem', '4rem']}
+          p={'0 1rem'}
+        >
+          {timelineItems.map((item) => <TimelineCard timeData={item} key={item._id}/>)}
+        </Grid>
+      </Box>
+
+      
       
     </>
     
