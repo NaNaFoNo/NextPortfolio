@@ -74,7 +74,7 @@ const Navbar = () => {
                   {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
                 </Button>
               
-                <Menu >
+                <Menu display={{ base: 'none', md: 'block' }} >
                   <MenuButton
                     display={['none', null, 'block']}
                     as={Button}
