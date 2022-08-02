@@ -1,18 +1,20 @@
 import {
   Heading,
   Text,
-  Flex,
+  Icon,
   Grid,
   GridItem,
   Box,
   Badge,
   Divider,
   Stack,
+  Link,
   useColorModeValue
-  
 } from '@chakra-ui/react'
 
-import ExternalLinkIcon from '@chakra-ui/icons'
+import { GrCertificate } from 'react-icons/gr'
+
+import { ExternalLinkIcon } from '@chakra-ui/icons'
 
 const stats = [
   {
@@ -40,16 +42,28 @@ const timelineItems = [
     end: '06/2021',
     source: 'Udacity',
     description: 'Certificate of Completion',
-    link: 'https://graduation.udacity.com/confirm/DCPF7QMZ'
+    link: 'https://graduation.udacity.com/confirm/DCPF7QMZ',
+    rubric: 'education'
   },
   {
-    _id: 'time1',
+    _id: 'time2',
     name: 'Front End Web Developer',
     start: '06/2021',
     end: '08/21',
     source: 'Udacity',
     description: 'Certificate of Completion',
-    link: 'https://graduation.udacity.com/confirm/QGNZJGAP'
+    link: 'https://graduation.udacity.com/confirm/QGNZJGAP',
+    rubric: 'education'
+  },
+  {
+    _id: 'time3',
+    name: 'PORTFOLIO BLOG WEBSITE',
+    start: '06/2021',
+    end: '08/21',
+    source: 'PROJECT',
+    description: 'Certificate of Completion',
+    link: 'https://graduation.udacity.com/confirm/QGNZJGAP',
+    rubric: 'project'
   },
 ]
 
@@ -61,7 +75,7 @@ const Card =({ children }) => {
         boxShadow={'xl'}
         rounded={'md'}
         p={4}
-        overflow={'hidden'}
+        /* overflow={'hidden'} */
       >
         {children}
       </Box>
@@ -105,35 +119,45 @@ const StatCard = ({ statData: { number, description }}) => {
 const TimelineCard =({ timeData: { name, start, end, source, description, link }}) => {
   return (
     <>
-      <Card>
-        {/* Icon */}
+      <Card >
+        <Box position={'relative'}>
+          <Box 
+            position={'absolute'}
+            w={'50px'}
+            h={'50px'}
+            left= {'-38px'}
+            top= {'0'}
+            bg={'#f79412'}
+            borderRadius={'50%'}
+            display={'flex'}
+            alignItems={'center'}
+            justifyContent={'center'}
+          >
+            <Icon as={GrCertificate} />
+          </Box>
+        </Box>
         <Badge
-          px={2}
-          py={1}
-          bg={useColorModeValue('gray.50', 'gray.800')}
+          ml={'2rem'}
+          bg={useColorModeValue('gray.100', 'gray.700')}
           fontWeight={'400'}
         >
             {start}-{end}
         </Badge>
-        <Heading >
+        <Heading ml={'2rem'}>
           {name}
           <br />
           <Box as={'span'}  >
             - {source}
           </Box>
         </Heading>
-        <Box as='p'>
+        <Box as='p' ml={'2rem'}>
           {description}
-         {/*  {link && 
-            <Box as='a' href={{ link }}>
-              <ExternalLinkIcon />
-            </Box>
-          } */}
+          {{link} && 
+            <Link href={{ link }}>
+              <Icon as={ExternalLinkIcon} /> 
+            </Link>
+          }
         </Box>
-        
-
-
-
       </Card>
     </>
   )
