@@ -12,7 +12,7 @@ import {
   useColorModeValue
 } from '@chakra-ui/react'
 
-import { GrCertificate } from 'react-icons/gr'
+import { FaAward, FaLaptopCode } from 'react-icons/fa'
 
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 
@@ -61,8 +61,8 @@ const timelineItems = [
     start: '06/2021',
     end: '08/21',
     source: 'PROJECT',
-    description: 'Certificate of Completion',
-    link: 'https://graduation.udacity.com/confirm/QGNZJGAP',
+    description: "You are looking at this page right now. I'm still working on it in the background for further improvements and functionality. ",
+    link: 'https://github.com/NaNaFoNo/PortfolioBlogWebsite',
     rubric: 'project'
   },
 ]
@@ -71,11 +71,10 @@ const Card =({ children }) => {
   return (
     <>
       <Box
-        bg={useColorModeValue('white', 'gray.900')}
-        boxShadow={'xl'}
+        bg={useColorModeValue('gray.100', 'gray.900')}
+        boxShadow={'dark-lg'}
         rounded={'md'}
         p={4}
-        /* overflow={'hidden'} */
       >
         {children}
       </Box>
@@ -116,11 +115,58 @@ const StatCard = ({ statData: { number, description }}) => {
   )
 }
 
-const TimelineCard =({ timeData: { name, start, end, source, description, link }}) => {
+const TimelineCard =({ timeData: { name, start, end, source, description, link, rubric }}) => {
   return (
     <>
       <Card >
-        <Box position={'relative'}>
+        <TimelineIcon rubric= {rubric} />
+        <Badge
+          p={'.2rem .6rem'}
+          borderRadius={'15px'}
+          fontSize={'.8rem'}
+          textTransform={'uppercase'}
+          ml={'2rem'}
+          bg={useColorModeValue('gray.100', 'gray.700')}
+          fontWeight={'500'}
+        >
+            { start + ' - ' + end }
+        </Badge>
+        <Heading
+          p={'1rem 0'}
+          ml={'2rem'}
+          fontWeight={'600'}
+          fontSize={'1.2rem'}
+          textTransform={'uppercase'}
+        >
+          {name}
+          <br />
+          <Box as={'span'}  >
+            - {source}
+          </Box>
+        </Heading>
+        <Box as='p' ml={'2rem'}>
+          {description + ' '}
+          {{link} && 
+            <Link href={{ link }} color={'#f79412'}>
+              <Icon as={ExternalLinkIcon} boxSize={'1.1rem'}/> 
+            </Link>
+          }
+        </Box>
+      </Card>
+    </>
+  )
+}
+
+const TimelineIcon = ({rubric}) => {
+  let icon 
+  if (rubric == 'education') {
+    icon = FaAward
+  } else {
+    icon = FaLaptopCode
+  }
+
+  return (
+    <Box position={'relative'}>
           <Box 
             position={'absolute'}
             w={'50px'}
@@ -133,76 +179,54 @@ const TimelineCard =({ timeData: { name, start, end, source, description, link }
             alignItems={'center'}
             justifyContent={'center'}
           >
-            <Icon as={GrCertificate} />
+            <Icon as={ icon } boxSize={'1.3rem'}/>
           </Box>
         </Box>
-        <Badge
-          ml={'2rem'}
-          bg={useColorModeValue('gray.100', 'gray.700')}
-          fontWeight={'400'}
-        >
-            {start}-{end}
-        </Badge>
-        <Heading ml={'2rem'}>
-          {name}
-          <br />
-          <Box as={'span'}  >
-            - {source}
-          </Box>
-        </Heading>
-        <Box as='p' ml={'2rem'}>
-          {description}
-          {{link} && 
-            <Link href={{ link }}>
-              <Icon as={ExternalLinkIcon} /> 
-            </Link>
-          }
-        </Box>
-      </Card>
-    </>
   )
 }
 
 export default function about() {
   return (
     <>
-      <Heading textAlign={'center'} mt={8}>ABOUT ME</Heading>
-      <Grid
-        gridTemplateColumns={['1fr', null,'repeat(2, 1fr)']} 
-        width={'100%'}
-        gap={8}
-        p={'4rem'}
-        justifyItems={'center'}
-      >
-        <GridItem>
-          <Heading mb={4}>My Summary</Heading>
-          <Text p={4}>
-            As an expert on high-voltage vehicles, I'm currently working on the edge of 
-            technology in automotive engineering.
-            By continuously learning and discovering new stuff I had my first contact with Bitcoin. 
-            The transformation of truth. This was the spark that was needed to give me 
-            the conviction to adjust my roadmap. This new technology will transform the 
-            world and I want to be part of this creative disruption.
-          </Text>
-          <Text p={4}>
-            My passion for code should not just be a hobby. I began to dive deeper into some courses and started new habits. Building fundamental knowledge led me to graduate the Blockchain Developer Nanodegree at Udacity. But the journey has only just begun.
-            Let's work to build a better tomorrow.
-          </Text>
-        </GridItem>
-        <GridItem>
-          <Grid
-            gridTemplateColumns={{ base: '1fr', '2xl': 'repeat(2, 1fr)' }}
-            gap={6}
-            p={'2.5rem 0'}
-          > 
-            {stats.map((stat) => <StatCard statData={stat} key={stat._id}/>)}               
-          </Grid>
-        </GridItem> 
-      </Grid>
+      <Box p={{ base:'2rem 4rem' , md: '4rem 8rem'}}>
+        <Heading textAlign={'center'} my={8}>ABOUT ME</Heading>
+        <Grid
+          gridTemplateColumns={['1fr', null,'repeat(2, 1fr)']} 
+          width={'100%'}
+          gap={12}
+          justifyItems={'center'}
+        >
+          <GridItem>
+            <Heading mb={4}>My Summary</Heading>
+            <Text p={4}>
+              As an expert on high-voltage vehicles, I'm currently working on the edge of 
+              technology in automotive engineering.
+              By continuously learning and discovering new stuff I had my first contact with Bitcoin. 
+              The transformation of truth. This was the spark that was needed to give me 
+              the conviction to adjust my roadmap. This new technology will transform the 
+              world and I want to be part of this creative disruption.
+            </Text>
+            <Text p={4}>
+              My passion for code should not just be a hobby. I began to dive deeper into some courses and started new habits. Building fundamental knowledge led me to graduate the Blockchain Developer Nanodegree at Udacity. But the journey has only just begun.
+              Let's work to build a better tomorrow.
+            </Text>
+          </GridItem>
+          <GridItem>
+            <Grid
+              gridTemplateColumns={{ base: '1fr', '2xl': 'repeat(2, 1fr)' }}
+              gap={12}
+              p={'2.5rem 0'}
+            > 
+              {stats.map((stat) => <StatCard statData={stat} key={stat._id}/>)}               
+            </Grid>
+          </GridItem> 
+        </Grid>
+      </Box>
 
       <Divider />
-      <Box p={'0 1rem 5rem'}>
-        <Heading>My code Timeline</Heading>
+
+      <Box p={{ base:'2rem 4rem' , md: '4rem 8rem'}}>
+        <Heading mb={'2rem'}>My code Timeline</Heading>
         <Grid
           gridTemplateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }}
           gap={['2rem', null ,'3rem', '4rem']}
