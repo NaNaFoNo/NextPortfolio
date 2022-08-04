@@ -12,7 +12,7 @@ import {
   useColorModeValue
 } from '@chakra-ui/react'
 
-import { FaAward, FaLaptopCode } from 'react-icons/fa'
+import { FaAward, FaLaptopCode, FaBookReader } from 'react-icons/fa'
 
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 
@@ -43,7 +43,7 @@ const timelineItems = [
     source: 'Udacity',
     description: 'Certificate of Completion',
     link: 'https://graduation.udacity.com/confirm/DCPF7QMZ',
-    rubric: 'education'
+    rubric: 'certificate'
   },
   {
     _id: 'time2',
@@ -53,7 +53,7 @@ const timelineItems = [
     source: 'Udacity',
     description: 'Certificate of Completion',
     link: 'https://graduation.udacity.com/confirm/QGNZJGAP',
-    rubric: 'education'
+    rubric: 'certificate'
   },
   {
     _id: 'time3',
@@ -159,10 +159,12 @@ const TimelineCard =({ timeData: { name, start, end, source, description, link, 
 
 const TimelineIcon = ({rubric}) => {
   let icon 
-  if (rubric == 'education') {
+  if (rubric == 'certificate') {
     icon = FaAward
-  } else {
+  } else if (rubric == 'project') {
     icon = FaLaptopCode
+  } else if (rubric == 'education') {
+    icon = FaBookReader
   }
 
   return (
