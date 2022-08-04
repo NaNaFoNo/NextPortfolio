@@ -10,13 +10,32 @@ import {
   useColorModeValue,
   Wrap,
   IconButton,
-  Link
+  Link,
+  Icon
 } from '@chakra-ui/react';
 
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { BsGithub } from 'react-icons/bs'
 
-import TechIcon from "./TechIcon";
+import { svgTechIcons } from '../utils/svgIcon'
+
+const TechIcon = ({techName}) => {
+  const svgObject= svgTechIcons.find((tech) => tech.name.toLowerCase() == techName.toLowerCase());
+  // { svgObject ? console.log('found'): console.log('notfound')}
+  
+  return (    
+    <>
+      { svgObject && 
+        <>
+          <Icon boxSize="10" viewBox="0 0 24 24" fill={svgObject.color == '#000000' ? useColorModeValue('#000000', '#FFF') : svgObject.color} >
+            <path d= {svgObject.path}/>
+            <title>{svgObject.name}</title>
+          </Icon>
+        </>
+      }
+    </>
+  )
+}
 
 
 const ProjectCard = ({ projectData: { name, description, image, stack, github, url }}) => {
@@ -27,7 +46,7 @@ const ProjectCard = ({ projectData: { name, description, image, stack, github, u
         maxW={'445px'}
         w={'full'}
         bg={useColorModeValue('white', 'gray.800')}
-        boxShadow={'2xl'}
+        boxShadow={'dark-lg'}
         rounded={'md'}
         p={6}
         overflow={'hidden'}>
