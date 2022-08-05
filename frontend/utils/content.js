@@ -1,6 +1,12 @@
-// Pages Navbar
+import { GiWolfHowl } from "react-icons/gi";
 
-export const pages = ['Home', 'About', 'Projects', 'Blog', 'Contact'];
+// Navbar content
+
+export const contentNavbar = {
+  title: 'NaNaFo-Portfolio',
+  icon: GiWolfHowl,
+  pages: ['Home', 'About', 'Projects', 'Blog', 'Contact'],
+}  
 
 // Home Content
 

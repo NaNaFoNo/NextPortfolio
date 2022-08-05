@@ -13,6 +13,7 @@ import {
   useDisclosure,
   useColorModeValue,
   Stack,
+  Icon,
   useColorMode,
   HStack,
 } from '@chakra-ui/react';
@@ -22,15 +23,17 @@ import {
   HamburgerIcon, 
   CloseIcon 
 } from '@chakra-ui/icons';
-import { GiWolfHowl } from "react-icons/gi";
 
-import { pages } from '../utils/content'
+
+import { contentNavbar } from '../utils/content'
 
 
 
 const Navbar = () => {
     const { colorMode, toggleColorMode } = useColorMode();
     const { isOpen, onOpen, onClose } = useDisclosure();
+
+    const pages =  contentNavbar.pages
 
     return (
       <>
@@ -44,9 +47,10 @@ const Navbar = () => {
               onClick={isOpen ? onClose : onOpen}
             />
             <HStack spacing={8} alignItems={'center'}>
-              <HStack> 
-                <GiWolfHowl size={'2em'}/> 
-                <Box>NaNaFo-Portfolio</Box>  
+              <HStack>
+              <Icon as={ contentNavbar.icon } boxSize={'2rem'}/> 
+                {/* <GiWolfHowl size={'2em'}/> */} 
+                <Box>{contentNavbar.title}</Box>  
               </HStack>
               <HStack
                 as={'nav'}
