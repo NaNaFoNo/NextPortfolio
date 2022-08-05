@@ -16,56 +16,8 @@ import { FaAward, FaLaptopCode, FaBookReader } from 'react-icons/fa'
 
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 
-const stats = [
-  {
-    _id: 'stat1',
-    number: '1.5+',
-    description: 'Years of continuous Programming'
-  },
-  {
-    _id: '2',
-    number: '4+',
-    description: 'Graduated Programming Courses'
-  },
-  {
-    _id: '3',
-    number: '30+',
-    description: 'Hours of Coding / last Month'
-  },
-]
+import { contentAbout } from '../utils/content'
 
-const timelineItems = [
-  {
-    _id: 'time1',
-    name: 'Intro to Programming',
-    start: '04/2021',
-    end: '06/2021',
-    source: 'Udacity',
-    description: 'Certificate of Completion',
-    link: 'https://graduation.udacity.com/confirm/DCPF7QMZ',
-    rubric: 'certificate'
-  },
-  {
-    _id: 'time2',
-    name: 'Front End Web Developer',
-    start: '06/2021',
-    end: '08/21',
-    source: 'Udacity',
-    description: 'Certificate of Completion',
-    link: 'https://graduation.udacity.com/confirm/QGNZJGAP',
-    rubric: 'certificate'
-  },
-  {
-    _id: 'time3',
-    name: 'PORTFOLIO BLOG WEBSITE',
-    start: '06/2021',
-    end: '08/21',
-    source: 'PROJECT',
-    description: "You are looking at this page right now. I'm still working on it in the background for further improvements and functionality. ",
-    link: 'https://github.com/NaNaFoNo/PortfolioBlogWebsite',
-    rubric: 'project'
-  },
-]
 
 const Card =({ children }) => {
   return (
@@ -188,6 +140,9 @@ const TimelineIcon = ({rubric}) => {
 }
 
 export default function about() {
+  const stats = contentAbout.stats
+  const timelineItems = contentAbout.timelineItems
+
   return (
     <>
       <Box p={{ base:'2rem 4rem' , md: '4rem 8rem'}}>
@@ -199,19 +154,12 @@ export default function about() {
           justifyItems={'center'}
         >
           <GridItem>
-            <Heading mb={4}>My Summary</Heading>
-            <Text p={4}>
-              As an expert on high-voltage vehicles, I'm currently working on the edge of 
-              technology in automotive engineering.
-              By continuously learning and discovering new stuff I had my first contact with Bitcoin. 
-              The transformation of truth. This was the spark that was needed to give me 
-              the conviction to adjust my roadmap. This new technology will transform the 
-              world and I want to be part of this creative disruption.
-            </Text>
-            <Text p={4}>
-              My passion for code should not just be a hobby. I began to dive deeper into some courses and started new habits. Building fundamental knowledge led me to graduate the Blockchain Developer Nanodegree at Udacity. But the journey has only just begun.
-              Let's work to build a better tomorrow.
-            </Text>
+            <Heading mb={4}>{contentAbout.subHeader}</Heading>
+            { contentAbout.textParagraphs.map((paragraph, index) => (
+              <Text p={4} key={index}>
+                {paragraph}
+              </Text>
+            ))}
           </GridItem>
           <GridItem>
             <Grid
@@ -219,7 +167,7 @@ export default function about() {
               gap={12}
               p={'2.5rem 0'}
             > 
-              {stats.map((stat) => <StatCard statData={stat} key={stat._id}/>)}               
+              { stats.map((stat) => <StatCard statData={stat} key={stat._id}/>)}               
             </Grid>
           </GridItem> 
         </Grid>
@@ -234,7 +182,9 @@ export default function about() {
           gap={['2rem', null ,'3rem', '4rem']}
           p={'0 1rem'}
         >
-          {timelineItems.map((item) => <TimelineCard timeData={item} key={item._id}/>)}
+          { timelineItems.map((item) => (
+            <TimelineCard timeData={item} key={item._id}/>)
+          )}
         </Grid>
       </Box>
 
