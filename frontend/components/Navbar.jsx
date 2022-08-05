@@ -24,7 +24,7 @@ import {
 } from '@chakra-ui/icons';
 import { GiWolfHowl } from "react-icons/gi";
 
-const Links = ['Home', 'About', 'Projects', 'Blog', 'Contact'];
+import { pages } from '../utils/content'
 
 
 
@@ -52,7 +52,7 @@ const Navbar = () => {
                 as={'nav'}
                 spacing={4}
                 display={{ base: 'none', md: 'flex' }}>
-                {Links.map((link) => (
+                {pages.map((link) => (
                   <Link
                     key={link}
                     px={2}
@@ -103,7 +103,7 @@ const Navbar = () => {
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
-              {Links.map((link) => (
+              {pages.map((link) => (
                 <Link
                   key={link}
                   px={2}

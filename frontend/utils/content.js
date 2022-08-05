@@ -1,3 +1,7 @@
+// Pages Navbar
+
+export const pages = ['Home', 'About', 'Projects', 'Blog', 'Contact'];
+
 // Home Content
 
 export const contentHome = {
