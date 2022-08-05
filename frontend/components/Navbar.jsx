@@ -77,29 +77,7 @@ const Navbar = () => {
                 <Button onClick={toggleColorMode}>
                   {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
                 </Button>
-              
-                <Menu display={{ base: 'none', md: 'block' }} >
-                  <MenuButton
-                    display={['none', null, 'block']}
-                    as={Button}
-                    rounded={'full'}
-                    variant={'link'}
-                    cursor={'pointer'}
-                    minW={0}>
-                    <Avatar
-                      size={'md'}
-                      src={
-                        '/me.jpeg'
-                      }
-                    />
-                  </MenuButton>
-                  <MenuList>
-                    <MenuItem>Twitter</MenuItem>
-                    <MenuItem>Github</MenuItem>
-                    <MenuItem>LinkedIn</MenuItem>
-                  </MenuList>
-                </Menu>
-
+                <Avatar size={'md'} src={'/me.jpeg'} />
               </HStack>  
             </Flex>
           </Flex>
