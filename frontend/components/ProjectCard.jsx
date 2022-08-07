@@ -27,7 +27,16 @@ const TechIcon = ({techName}) => {
     <>
       { svgObject && 
         <>
-          <Icon boxSize="10" viewBox="0 0 24 24" fill={svgObject.color == '#000000' ? useColorModeValue('#000000', '#FFF') : svgObject.color} >
+          <Icon 
+            boxSize="10" 
+            viewBox="0 0 24 24" 
+            fill= {
+              svgObject.color == '#000000' ? 
+                useColorModeValue('#000000', '#FFF') 
+                : 
+                svgObject.color
+            }
+          >
             <path d= {svgObject.path}/>
             <title>{svgObject.name}</title>
           </Icon>
@@ -40,7 +49,9 @@ const TechIcon = ({techName}) => {
 
 const ProjectCard = ({ projectData: { name, description, image, stack, github, url }}) => {
   return (
-    <Center py={6}>
+    <Center py={6} transform="scale(1.0)" transition="0.3s ease-in-out" _hover={{
+      transform: 'scale(1.05)',
+    }}>
       
       <Box
         maxW={'445px'}
@@ -66,6 +77,11 @@ const ProjectCard = ({ projectData: { name, description, image, stack, github, u
                     aria-label='Call Segun'
                     size='sm'
                     icon={<ExternalLinkIcon size={'1.2rem'}/>}
+                    transform="scale(1.0)" 
+                    transition="0.3s ease-in-out" 
+                    _hover={{
+                      transform: 'scale(1.2)',
+                    }}
                   />
                 </Link>
               }
@@ -76,6 +92,11 @@ const ProjectCard = ({ projectData: { name, description, image, stack, github, u
                   aria-label='Call Segun'
                   size='sm'
                   icon={<BsGithub size={'1.2rem'}/>}
+                  transform="scale(1.0)" 
+                  transition="0.3s ease-in-out" 
+                  _hover={{
+                    transform: 'scale(1.2)',
+                  }}
                 />
               </Link>
             </Flex>
@@ -99,7 +120,7 @@ const ProjectCard = ({ projectData: { name, description, image, stack, github, u
             {description}
           </Text>
         </Stack>
-        <Wrap align={'center'} justify={'space-around'} direction={'row'} mt={6} h={'auto'}>
+        <Wrap align={'center'} justify={'space-around'} direction={'row'} mt={6} h={'auto'} >
           {stack.map((tech, index) => (
               <TechIcon techName= {tech} key={index}/>
           ))}
