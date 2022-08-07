@@ -37,18 +37,21 @@ const BlogPage = () => {
             marginLeft={{ base: '0', sm: '5%' }}
             marginTop="5%"
           >
-            <Image
-              transform="scale(1.0)"
-              borderRadius="lg"
-              src={
-                'https://images.unsplash.com/photo-1592819695396-064b9572a660?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'
-              }
-              alt="writing Image"
-              objectFit="contain"
-              _hover={{
-                transform: 'scale(1.05)',
-              }}
-            />
+            <LinkOverlay href={'https://dev.to/nanafo/why-im-starting-a-blog-2mg7'} isExternal >
+              <Image
+                transform="scale(1.0)"
+                transition="0.3s ease-in-out"
+                borderRadius="lg"
+                src={
+                  'https://images.unsplash.com/photo-1592819695396-064b9572a660?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'
+                }
+                alt="writing Image"
+                objectFit="contain"
+                _hover={{
+                  transform: 'scale(1.05)',
+                }}
+              />
+            </LinkOverlay>
           </Box>
           <Box zIndex="1" width="100%" position="absolute" height="100%">
             <Box
@@ -69,7 +72,7 @@ const BlogPage = () => {
           justifyContent="center"
           marginTop={{ base: '3', sm: '0' }}>
           <Heading marginTop="1">
-            <LinkOverlay href={'https://dev.to/nanafo/why-im-starting-a-blog-2mg7'} isExternal textDecoration="none" _hover={{ textDecoration: 'uppercase' }}>
+            <LinkOverlay href={'https://dev.to/nanafo/why-im-starting-a-blog-2mg7'} isExternal >
               blog article title
             </LinkOverlay>
           </Heading>
@@ -90,24 +93,24 @@ const BlogPage = () => {
         <WrapItem width={{ base: '100%', sm: '45%', md: '45%', lg: '30%' }}>
           <LinkBox w="100%">
             <Box borderRadius="lg" overflow="hidden"> 
-              <Image
-                transform="scale(1.0)"
-                src={
-                  'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'
-                }
-                alt="some text"
-                objectFit="contain"
-                width="100%"
-                transition="0.3s ease-in-out"
-                _hover={{
-                  transform: 'scale(1.05)',
-                }}
-              /> 
+              <LinkOverlay href={'#'}>
+                <Image
+                  transform="scale(1.0)"
+                  src={
+                    'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'
+                  }
+                  alt="some text"
+                  objectFit="contain"
+                  width="100%"
+                  transition="0.3s ease-in-out"
+                  _hover={{
+                    transform: 'scale(1.05)',
+                  }}
+                /> 
+              </LinkOverlay>
             </Box>
             <Heading fontSize="xl" marginTop="2">
-              <Link textDecoration="none" _hover={{ textDecoration: 'none' }}>
                 blog article title
-              </Link>
             </Heading>
             <Text as="p" fontSize="md" marginTop="2">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
@@ -120,24 +123,24 @@ const BlogPage = () => {
         <WrapItem width={{ base: '100%', sm: '45%', md: '45%', lg: '30%' }}>
           <LinkBox w="100%">
             <Box borderRadius="lg" overflow="hidden"> 
-              <Image
-                transform="scale(1.0)"
-                src={
-                  'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'
-                }
-                alt="some text"
-                objectFit="contain"
-                width="100%"
-                transition="0.3s ease-in-out"
-                _hover={{
-                  transform: 'scale(1.05)',
-                }}
-              /> 
+              <LinkOverlay href={'#'}>
+                <Image
+                  transform="scale(1.0)"
+                  src={
+                    'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'
+                  }
+                  alt="some text"
+                  objectFit="contain"
+                  width="100%"
+                  transition="0.3s ease-in-out"
+                  _hover={{
+                    transform: 'scale(1.05)',
+                  }}
+                /> 
+              </LinkOverlay>
             </Box>
             <Heading fontSize="xl" marginTop="2">
-              <Link textDecoration="none" _hover={{ textDecoration: 'none' }}>
                 blog article title
-              </Link>
             </Heading>
             <Text as="p" fontSize="md" marginTop="2">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
