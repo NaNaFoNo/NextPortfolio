@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Box,
   Heading,
-  Link,
   LinkBox,
   LinkOverlay,
   Image,
@@ -15,11 +14,14 @@ import {
   VStack,
 } from '@chakra-ui/react';
 
+import { contentBlog } from '../utils/content'
+
 
 const BlogPage = () => {
+
   return (
     <Container maxW={'7xl'} p="12">
-      <Heading as="h1">Nanafo Blog</Heading>
+      <Heading as="h1">{ contentBlog.title }</Heading>
       <LinkBox
         marginTop={{ base: '1', sm: '5' }}
         display="flex"
@@ -37,14 +39,12 @@ const BlogPage = () => {
             marginLeft={{ base: '0', sm: '5%' }}
             marginTop="5%"
           >
-            <LinkOverlay href={'https://dev.to/nanafo/why-im-starting-a-blog-2mg7'} isExternal >
+            <LinkOverlay href={ contentBlog.blogs[0].url } isExternal >
               <Image
                 transform="scale(1.0)"
                 transition="0.3s ease-in-out"
                 borderRadius="lg"
-                src={
-                  'https://images.unsplash.com/photo-1592819695396-064b9572a660?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'
-                }
+                src={ contentBlog.blogs[0].image }
                 alt="writing Image"
                 objectFit="contain"
                 _hover={{
@@ -72,8 +72,8 @@ const BlogPage = () => {
           justifyContent="center"
           marginTop={{ base: '3', sm: '0' }}>
           <Heading marginTop="1">
-            <LinkOverlay href={'https://dev.to/nanafo/why-im-starting-a-blog-2mg7'} isExternal >
-              blog article title
+            <LinkOverlay href={ contentBlog.blogs[0].url } isExternal >
+              { contentBlog.blogs[0].caption }
             </LinkOverlay>
           </Heading>
           <Text
@@ -81,7 +81,7 @@ const BlogPage = () => {
             marginTop="2"
             color={useColorModeValue('gray.700', 'gray.200')}
             fontSize="lg">
-              Writing is re-thinking. Learning accelerates and your ideas got clear.
+              { contentBlog.blogs[0].description }
           </Text>
         </Box>
       </LinkBox>
@@ -90,85 +90,41 @@ const BlogPage = () => {
       </Heading>
       <Divider marginTop="5" />
       <Wrap spacing="30px" marginTop="5">
-        <WrapItem width={{ base: '100%', sm: '45%', md: '45%', lg: '30%' }}>
-          <LinkBox w="100%">
-            <Box borderRadius="lg" overflow="hidden"> 
-              <LinkOverlay href={'#'}>
-                <Image
-                  transform="scale(1.0)"
-                  src={
-                    'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'
-                  }
-                  alt="some text"
-                  objectFit="contain"
-                  width="100%"
-                  transition="0.3s ease-in-out"
-                  _hover={{
-                    transform: 'scale(1.05)',
-                  }}
-                /> 
-              </LinkOverlay>
-            </Box>
-            <Heading fontSize="xl" marginTop="2">
-                blog article title
-            </Heading>
-            <Text as="p" fontSize="md" marginTop="2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-              nisi ut aliquip ex ea commodo consequat. 
-            </Text>
-          </LinkBox>
-        </WrapItem>
-        <WrapItem width={{ base: '100%', sm: '45%', md: '45%', lg: '30%' }}>
-          <LinkBox w="100%">
-            <Box borderRadius="lg" overflow="hidden"> 
-              <LinkOverlay href={'#'}>
-                <Image
-                  transform="scale(1.0)"
-                  src={
-                    'https://images.unsplash.com/photo-1609554496796-c345a5335ceb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'
-                  }
-                  alt="some text"
-                  objectFit="contain"
-                  width="100%"
-                  transition="0.3s ease-in-out"
-                  _hover={{
-                    transform: 'scale(1.05)',
-                  }}
-                /> 
-              </LinkOverlay>
-            </Box>
-            <Heading fontSize="xl" marginTop="2">
-                blog article title
-            </Heading>
-            <Text as="p" fontSize="md" marginTop="2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-              nisi ut aliquip ex ea commodo consequat. 
-            </Text>
-          </LinkBox>
-        </WrapItem>
+        { contentBlog.blogs.slice(1).map((blog) => (
+          <WrapItem width={{ base: '100%', sm: '45%', md: '45%', lg: '30%' }} key={blog._id}>
+            <LinkBox w="100%">
+              <Box borderRadius="lg" overflow="hidden"> 
+                <LinkOverlay href={ blog.url }>
+                  <Image
+                    transform="scale(1.0)"
+                    src={ blog.image }
+                    alt="some text"
+                    objectFit="contain"
+                    width="100%"
+                    transition="0.3s ease-in-out"
+                    _hover={{
+                      transform: 'scale(1.05)',
+                    }}
+                  /> 
+                </LinkOverlay>
+              </Box>
+              <Heading fontSize="xl" marginTop="2">
+                  { blog.caption }
+              </Heading>
+              <Text as="p" fontSize="md" marginTop="2">
+                { blog.description }
+              </Text>
+            </LinkBox>
+          </WrapItem>
+        ))}
       </Wrap>
       <VStack paddingTop="40px" spacing="2" alignItems="flex-start">
         <Heading as="h2">About this Blog</Heading>
-        <Text as="p" fontSize="lg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          Sed finibus ex ac vehicula fermentum. Duis tempor dui laoreet elementum varius. 
-          Proin fermentum quam in elit sollicitudin, in ultrices neque dapibus. 
-          Pellentesque habitant morbi tristique senectus et netus et malesuada 
-          fames ac turpis egestas. Phasellus fringilla nunc vel urna suscipit, 
-          nec laoreet enim volutpat. Integer feugiat sapien dui, a accumsan nulla.
-        </Text>
-        <Text as="p" fontSize="lg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          Sed finibus ex ac vehicula fermentum. Duis tempor dui laoreet elementum varius. 
-          Proin fermentum quam in elit sollicitudin, in ultrices neque dapibus. 
-          Pellentesque habitant morbi tristique senectus et netus et malesuada 
-          fames ac turpis egestas. Phasellus fringilla nunc vel urna suscipit, 
-          nec laoreet enim volutpat. Integer feugiat sapien dui, a accumsan nulla.
-        </Text>
+        { contentBlog.blogDescription.map((p, index) => (
+          <Text as="p" fontSize="lg" key={index}>
+            {p}
+          </Text>
+        ))}
       </VStack>
     </Container>
   );
