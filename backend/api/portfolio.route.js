@@ -1,5 +1,6 @@
 import express from "express"
 import PortfolioController from "./portfolio.controller.js"
+import BlogController from "./blog.controller.js"
 
 const router = express.Router()
 
@@ -11,5 +12,8 @@ router
         .post(PortfolioController.apiPostProject)
         .put(PortfolioController.apiUpdateProject)
         .delete(PortfolioController.apiDeleteProject)
+
+router
+    .route('/blogs').get(BlogController.apiGetBlogs)
 
 export default router

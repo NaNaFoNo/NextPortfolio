@@ -18,7 +18,7 @@ export default function Home() {
   }, [])
 
   const retrieveProjects = () => {
-    ProjectsDataService.getAll()
+    ProjectsDataService.getAllProjects()
       .then(response => {
         setProjects(response.data);
       })

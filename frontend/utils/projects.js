@@ -1,8 +1,11 @@
 import http from "./http.common";
 
 class ProjectsDataService {
-    getAll() {
-        return http.get();
+    getAllProjects() {
+        return http.get("/projects");
+    }
+    getAllBlogs() {
+        return http.get("/blogs");
     }
 
 }
