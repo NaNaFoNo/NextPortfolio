@@ -17,9 +17,12 @@ import {
     useColorModeValue,
     VStack,
   } from '@chakra-ui/react';
+
   import React from 'react';
   import { BsGithub, BsLinkedin, BsPerson, BsTwitter } from 'react-icons/bs';
   import { MdEmail, MdOutlineEmail } from 'react-icons/md';
+
+  import PageHeading from '../components/PageHeading';
   
   const confetti = {
     light: {
@@ -55,13 +58,7 @@ import {
           p={{ base: 5, lg: 16 }}>
           <Box>
             <VStack spacing={{ base: 4, md: 8, lg: 20 }}>
-              <Heading
-                fontSize={{
-                  base: '4xl',
-                  md: '5xl',
-                }}>
-                Get in Touch
-              </Heading>
+              <PageHeading page={'contact'} />
   
               <Stack
                 spacing={{ base: 4, md: 8, lg: 20 }}

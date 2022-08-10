@@ -7,7 +7,7 @@ import {
 
 
 import ProjectCard from '../components/ProjectCard'
-
+import PageHeading from '../components/PageHeading';
 
 
 export default function Home() {
@@ -30,9 +30,7 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>
-        My Projects
-      </h1>
+      <PageHeading page={'projects'} />
       <p className={styles.description}>
         Take a look at some of my work
       </p>

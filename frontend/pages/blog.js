@@ -17,7 +17,7 @@ import {
 
 import { contentBlog } from '../utils/content'
 import ProjectsDataService from '../utils/projects'
-
+import PageHeading from '../components/PageHeading';
 
 export default function BlogPage() {
   const [blogs, setBlogs] = useState([])
@@ -39,7 +39,7 @@ export default function BlogPage() {
 
   return (
     <Container maxW={'7xl'} p="12">
-      <Heading as="h1">{ contentBlog.title }</Heading>
+      <PageHeading page={'blog'}/>
       {blogs.slice(0, 1).map((blog) => (
         <LinkBox
           marginTop={{ base: '1', sm: '5' }}

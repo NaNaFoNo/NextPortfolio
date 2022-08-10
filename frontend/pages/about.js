@@ -16,6 +16,7 @@ import { FaAward, FaLaptopCode, FaBookReader } from 'react-icons/fa'
 
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 
+import PageHeading from '../components/PageHeading';
 import { contentAbout } from '../utils/content'
 
 
@@ -146,12 +147,13 @@ export default function about() {
   return (
     <>
       <Box p={{ base:'2rem 4rem' , md: '4rem 8rem'}}>
-        <Heading textAlign={'center'} my={8}>ABOUT ME</Heading>
+        <PageHeading page={'about'}/>
         <Grid
           gridTemplateColumns={['1fr', null,'repeat(2, 1fr)']} 
           width={'100%'}
           gap={12}
           justifyItems={'center'}
+          mt={'3rem'}
         >
           <GridItem>
             <Heading mb={4}>{contentAbout.subHeader}</Heading>
