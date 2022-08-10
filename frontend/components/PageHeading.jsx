@@ -1,18 +1,10 @@
 import React from 'react'
 import { Box, Heading, chakra } from '@chakra-ui/react'
-
-
-const headlines = [
-  { page: 'about', head: 'about ', headSp: 'me', bgTop: 'my', bgBot: 'stats' },
-  { page: 'projects', head: 'port', headSp: 'folio', bgTop: 'my', bgBot: 'projects' },
-  { page: 'blog', head: 'blog ', headSp: 'posts', bgTop: 'my', bgBot: 'articles' },
-  { page: 'contact', head: 'contact ', headSp: 'me', bgTop: 'get in', bgBot: 'touch' },
-]
-
+import { contentPageHeadings } from '../utils/content'
 
 
 const PageHeading = ({ page }) => {
-  const headData = headlines.find(checkPage);
+  const headData = contentPageHeadings.find(checkPage);
   
   function checkPage(headline) {
     return headline.page == page; 

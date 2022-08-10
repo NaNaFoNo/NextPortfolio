@@ -8,6 +8,15 @@ export const contentNavbar = {
   pages: ['Home', 'About', 'Projects', 'Blog', 'Contact'],
 }  
 
+// Page Headings
+
+export const contentPageHeadings = [
+  { page: 'about', head: 'about ', headSp: 'me', bgTop: 'my', bgBot: 'stats' },
+  { page: 'projects', head: 'port', headSp: 'folio', bgTop: 'my', bgBot: 'projects' },
+  { page: 'blog', head: 'blog ', headSp: 'posts', bgTop: 'my', bgBot: 'articles' },
+  { page: 'contact', head: 'contact ', headSp: 'me', bgTop: 'get in', bgBot: 'touch' },
+]
+
 // Home Content
 
 export const contentHome = {
