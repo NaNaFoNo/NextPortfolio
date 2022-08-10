@@ -19,12 +19,12 @@ import { contentBlog } from '../utils/content'
 import ProjectsDataService from '../utils/projects'
 
 
-const BlogPage = () => {
+export default function BlogPage() {
   const [blogs, setBlogs] = useState([])
 
   useEffect(() => {
     retrieveBlogs();
-  }, [blogs])
+  }, [])
 
   const retrieveBlogs = () => {
     ProjectsDataService.getAllBlogs()
@@ -35,7 +35,7 @@ const BlogPage = () => {
         console.log(e);
       });
   };
-  if(!blogs) return <div>Loading...</div>;
+
 
   return (
     <Container maxW={'7xl'} p="12">
@@ -153,5 +153,3 @@ const BlogPage = () => {
     </Container>
   );
 };
-
-export default BlogPage;

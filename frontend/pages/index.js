@@ -45,7 +45,7 @@ export default function Home() {
               { heading.highlight ? (
                 <span style={ {color: '#f79412'} } key={index}>{heading.text}</span> 
               ) : (
-                heading.text
+                <span key={index}>{heading.text}</span>
               )}
               { heading.br && (<br />)}
             </>
