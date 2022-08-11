@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
-import styles from '../styles/Home.module.css'
 import ProjectsDataService from '../utils/projects'
 import {
-  Wrap
+  Container,
+  Wrap,
+  Text
 } from '@chakra-ui/react';
 
 
@@ -29,14 +30,11 @@ export default function Home() {
   
 
   return (
-    <div className={styles.container}>
+    <Container maxW={'7xl'} p="12">
       <PageHeading page={'projects'} />
-      <p className={styles.description}>
-        Take a look at some of my work
-      </p>
-      <Wrap spacing={'30px'} align={'center'} justify={'center'}>
+      <Wrap mt={'3rem'} spacing={'50px'} align={'center'} justify={'center'} overflow={'no'}>
         {projects.map((project) => <ProjectCard projectData={project} key={project._id}/>)}
       </Wrap>
-    </div>
+    </Container>
   )
 }

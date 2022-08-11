@@ -49,7 +49,7 @@ const TechIcon = ({techName}) => {
 
 const ProjectCard = ({ projectData: { name, description, image, stack, github, url }}) => {
   return (
-    <Center py={6} transform="scale(1.0)" transition="0.3s ease-in-out" _hover={{
+    <Center transform="scale(1.0)" transition="0.3s ease-in-out" _hover={{
       transform: 'scale(1.05)',
     }}>
       
