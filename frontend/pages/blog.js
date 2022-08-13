@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState, useEffect } from 'react'
 import {
   Box,
   Heading,
@@ -19,28 +18,12 @@ import { contentBlog } from '../utils/content'
 import ProjectsDataService from '../utils/projects'
 import PageHeading from '../components/PageHeading';
 
-export default function BlogPage() {
-  const [blogs, setBlogs] = useState([])
 
-  useEffect(() => {
-    retrieveBlogs();
-  }, [])
-
-  const retrieveBlogs = () => {
-    ProjectsDataService.getAllBlogs()
-      .then(response => {
-        setBlogs(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  };
-
-
+export default function BlogPage({ blogs }) {
   return (
     <Container maxW={'7xl'} p="12">
       <PageHeading page={'blog'}/>
-      {blogs.slice(0, 1).map((blog) => (
+      {blogs?.slice(0, 1).map((blog) => (
         <LinkBox
           marginTop={{ base: '1', sm: '5' }}
           display="flex"
@@ -114,7 +97,7 @@ export default function BlogPage() {
       </Heading>
       <Divider marginTop="5" />
       <Wrap spacing="30px" marginTop="5">
-        { blogs.slice(1).map((blog) => (
+        { blogs?.slice(1).map((blog) => (
           <WrapItem width={{ base: '100%', sm: '45%', md: '45%', lg: '30%' }} key={blog._id}>
             <LinkBox w="100%">
               <Box borderRadius="lg" overflow="hidden"> 
@@ -153,3 +136,13 @@ export default function BlogPage() {
     </Container>
   );
 };
+
+export async function getStaticProps() {
+  const req = await ProjectsDataService.getAllBlogs();
+
+  return {
+    props: {
+      blogs: req.data,
+    }
+  }
+}
