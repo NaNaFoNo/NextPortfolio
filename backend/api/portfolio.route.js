@@ -1,6 +1,7 @@
 import express from "express"
 import PortfolioController from "./portfolio.controller.js"
 import BlogController from "./blog.controller.js"
+import GitController from "./githubAPI.js"
 
 const router = express.Router()
 
@@ -15,5 +16,7 @@ router
 
 router
     .route('/blogs').get(BlogController.apiGetBlogs)
+router
+    .route('/github').get(GitController.apiGetRepos)
 
 export default router
