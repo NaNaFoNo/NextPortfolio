@@ -29,15 +29,8 @@ export default class PortfolioDAO {
         }
     }
 
-    static async addProject(projectName, text, gitLink, url, stack) {
+    static async addProject(projectDoc) {
         try {
-            const projectDoc = {
-                name: projectName,
-                description: text,
-                github: gitLink,
-                url: url,
-                stack: stack
-            }
             return await portfolio.insertOne(projectDoc)
         } catch (e) {
             console.error(`Unable to post a new project: ${e}`)

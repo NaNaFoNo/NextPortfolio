@@ -18,6 +18,30 @@ export default class GitController {
     }
   }
 
+  static async apiGetProjectInfo(repo, res, req) {
+    try {
+        const RepoResponse = await octokit.request("GET /repos/{owner}/{repo}", {
+          owner: process.env.GITHUB_USER,
+          repo: repo
+        });
+        return RepoResponse
+    } catch (e) {
+        return ({ error: e.message })
+    }
+  }
+
+  static async apiGetRepoLanguages(repo) {
+    try {
+        const RepoResponse = await octokit.request('GET /repos/{owner}/{repo}/languages', {
+          owner: process.env.GITHUB_USER,
+          repo: repo
+        })
+        return json(RepoResponse)
+    } catch (e) {
+        res.status(500).json({ error: e.message })
+    }
+  }
+
 }
 
 

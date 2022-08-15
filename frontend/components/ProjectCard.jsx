@@ -60,7 +60,8 @@ const ProjectCard = ({ projectData: { name, description, image, stack, github, u
         boxShadow={'dark-lg'}
         rounded={'md'}
         p={6}
-        overflow={'hidden'}>
+        overflow={'hidden'}
+        minWidth={'389px'}>
         <Box
           h={'210px'}
           bg={'gray.100'}
@@ -102,7 +103,7 @@ const ProjectCard = ({ projectData: { name, description, image, stack, github, u
             </Flex>
           </Box>
           <Image
-            src={image}
+            src={image ? image : 'https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1489&q=80'}
             layout={'fill'}
             objectFit={'cover'}
             priority={true}
@@ -121,7 +122,7 @@ const ProjectCard = ({ projectData: { name, description, image, stack, github, u
           </Text>
         </Stack>
         <Wrap align={'center'} justify={'space-around'} direction={'row'} mt={6} h={'auto'} >
-          {stack.map((tech, index) => (
+          {stack?.map((tech, index) => (
               <TechIcon techName= {tech} key={index}/>
           ))}
           

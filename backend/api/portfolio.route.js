@@ -17,6 +17,6 @@ router
 router
     .route('/blogs').get(BlogController.apiGetBlogs)
 router
-    .route('/github').get(GitController.apiGetRepos)
+    .route('/github').get(GitController.apiGetProjectInfo)
 
 export default router
