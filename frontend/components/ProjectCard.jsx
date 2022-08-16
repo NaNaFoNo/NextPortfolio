@@ -11,8 +11,15 @@ import {
   Wrap,
   IconButton,
   Link,
-  Icon
+  Icon,
+  Tabs, 
+  TabList, 
+  TabPanels, 
+  Tab, 
+  TabPanel
 } from '@chakra-ui/react';
+
+import Languages from '../components/Languages'
 
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { BsGithub } from 'react-icons/bs'
@@ -47,7 +54,7 @@ const TechIcon = ({techName}) => {
 }
 
 
-const ProjectCard = ({ projectData: { name, description, image_url, topics, github, url }}) => {
+const ProjectCard = ({ projectData: { name, description, image_url, topics, github, url, languages }}) => {
   return (
     <Center transform="scale(1.0)" transition="0.3s ease-in-out" _hover={{
       transform: 'scale(1.05)',
@@ -121,12 +128,26 @@ const ProjectCard = ({ projectData: { name, description, image_url, topics, gith
             {description}
           </Text>
         </Stack>
-        <Wrap align={'center'} justify={'space-around'} direction={'row'} mt={6} h={'auto'} >
-          {topics?.map((tech, index) => (
-              <TechIcon techName= {tech} key={index}/>
-          ))}
-          
-        </Wrap>
+        <Tabs mt={4} isFitted>
+          <TabList>
+            <Tab>Stack</Tab>
+            <Tab>Languages</Tab>
+          </TabList>
+
+          <TabPanels>
+            <TabPanel>
+              <Wrap align={'center'} justify={'space-around'} direction={'row'} mt={6} h={'auto'} >
+                {topics?.map((tech, index) => (
+                  <TechIcon techName= {tech} key={index}/>
+                ))}
+              </Wrap>
+            </TabPanel>
+            <TabPanel>
+              <Languages languages={languages}/>
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
+        
       </Box>
     </Center>      
   )
