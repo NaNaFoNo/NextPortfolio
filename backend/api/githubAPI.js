@@ -6,7 +6,7 @@ dotenv.config()
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 
 export default class GitController {
-  static async apiGetRepos(req, res, next) {
+  /* static async apiGetRepos(req, res, next) {
     try {
         const RepoResponse = await octokit.request("GET /users/{username}/repos", {
           username: process.env.GITHUB_USER,
@@ -16,9 +16,9 @@ export default class GitController {
     } catch (e) {
         res.status(500).json({ error: e.message })
     }
-  }
+  } */
 
-  static async apiGetProjectInfo(repo, res, req) {
+  static async apiGetProjectInfo(repo) {
     try {
         const RepoResponse = await octokit.request("GET /repos/{owner}/{repo}", {
           owner: process.env.GITHUB_USER,
@@ -36,9 +36,9 @@ export default class GitController {
           owner: process.env.GITHUB_USER,
           repo: repo
         })
-        return json(RepoResponse)
+        return RepoResponse
     } catch (e) {
-        res.status(500).json({ error: e.message })
+        return ({ error: e.message })
     }
   }
 

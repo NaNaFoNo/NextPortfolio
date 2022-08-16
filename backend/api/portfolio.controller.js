@@ -16,30 +16,32 @@ export default class PortfolioController {
             res.json(ProjectsResponse)
         } catch (e) {
             res.status(500).json({ error: e.message })
-        }
-
-        
+        } 
     }
     
     static async apiPostProject(req, res, next) {
         try {
             const projectName = req.body.project_name
-            const Git = await GitController.apiGetProjectInfo(req.body.project_name)
+            const image_url = req.body.image_url
+            const GitRepo = await GitController.apiGetProjectInfo(projectName)
+            const GitLang = await GitController.apiGetRepoLanguages(projectName)
+            
 
             const projectDoc = {
                 name: projectName,
-                description: Git.data.description,
-                git_url: Git.data.html_url,
-                homepage_url: Git.data.homepage,
-                topics: Git.data.topics,
-                created: Git.data.created_at,
-                updated: Git.data.updated_at
+                image_url: image_url,
+                description: GitRepo.data.description,
+                git_url: GitRepo.data.html_url,
+                homepage_url: GitRepo.data.homepage,
+                topics: GitRepo.data.topics,
+                languages: GitLang.data,
+                created: GitRepo.data.created_at,
+                updated: GitRepo.data.updated_at,  
             }
 
             const ProjectResponse = await PortfolioDAO.addProject(projectDoc)
 
             res.json({ status: "success" })
-
         } catch (e) {
             res.status(500).json({ error: e.message }) 
         }    
@@ -55,8 +57,6 @@ export default class PortfolioController {
         } catch (e) {
             res.status(500).json({ error: e.message })
         }
-
-        
     }
 
     static async apiDeleteProject(req, res, next) {
