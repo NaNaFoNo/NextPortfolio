@@ -1,7 +1,7 @@
 import React from 'react'
 import { Icon, useColorModeValue } from '@chakra-ui/react'
 
-import { svgTechIcons } from '../utils/svgIcon'
+import { svgTechIcons } from '../../utils/svgIcon'
 
 const TechIcon = ({ techName }) => {
   const svgObject= svgTechIcons.find((tech) => tech.name.toLowerCase() == techName.toLowerCase());

@@ -18,7 +18,7 @@ import {
   TabPanel
 } from '@chakra-ui/react';
 
-import Languages from '../components/Languages'
+import Languages from './Languages'
 import TechIcon from './TechIcon';
 
 import { ExternalLinkIcon } from '@chakra-ui/icons'

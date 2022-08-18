@@ -5,7 +5,7 @@ import {
 
 import ProjectsDataService from '../utils/projects'
 
-import ProjectCard from '../components/ProjectCard'
+import ProjectCard from '../components/projects/ProjectCard'
 import PageHeading from '../components/PageHeading';
 
 
