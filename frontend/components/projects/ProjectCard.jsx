@@ -92,7 +92,7 @@ const ProjectCard = ({ projectData: { name, description, image_url, topics, gith
             color={useColorModeValue('gray.700', 'white')}
             fontSize={'2xl'}
             fontFamily={'body'}>
-            {name}
+            {name.replace(/([A-Z])/g, ' $1').trim()}
           </Heading>
           <Text color={'gray.500'}>
             {description}
@@ -103,6 +103,7 @@ const ProjectCard = ({ projectData: { name, description, image_url, topics, gith
           <TabList>
             <Tab>Stack</Tab>
             <Tab>Languages</Tab>
+            <Tab>Stats</Tab>
           </TabList>
 
           <TabPanels>
