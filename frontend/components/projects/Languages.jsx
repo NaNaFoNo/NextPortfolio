@@ -38,8 +38,7 @@ const Languages = ({ languages }) => {
           borderLeftRadius={index == 0 && 'xl' }
           borderRightRadius={index == LangData.length - 1 && 'xl' }
         >
-        
-          {  obj.stat +'%'}
+          {  obj.stat > 5 ? obj.stat +'%' : ''}
         </Box>
       ))
       }

@@ -88,7 +88,6 @@ const ProjectCard = ({ projectData: { name, description, image_url, topics, gith
           />
         </Box>
         <Stack>
-          
           <Heading
             color={useColorModeValue('gray.700', 'white')}
             fontSize={'2xl'}
@@ -99,6 +98,7 @@ const ProjectCard = ({ projectData: { name, description, image_url, topics, gith
             {description}
           </Text>
         </Stack>
+
         <Tabs mt={4} isFitted>
           <TabList>
             <Tab>Stack</Tab>
