@@ -15,7 +15,8 @@ import {
   TabList, 
   TabPanels, 
   Tab, 
-  TabPanel
+  TabPanel,
+  Badge
 } from '@chakra-ui/react';
 
 import Languages from './Languages'
@@ -24,8 +25,16 @@ import TechIcon from './TechIcon';
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { BsGithub } from 'react-icons/bs'
 
+import { dateDiffOutput } from "../../utils/dateDiff";
 
-const ProjectCard = ({ projectData: { name, description, image_url, topics, github, url, languages }}) => {
+
+const ProjectCard = ({ projectData: { name, description, image_url, topics, github, url, languages, created, updated }}) => {
+  
+  let dateCreated = new Date(created)
+  let dateUpdated = new Date(updated)
+  let dateNow = new Date()
+
+  
   return (
     <Center transform="scale(1.0)" transition="0.3s ease-in-out" _hover={{
       transform: 'scale(1.05)',
@@ -116,6 +125,12 @@ const ProjectCard = ({ projectData: { name, description, image_url, topics, gith
             </TabPanel>
             <TabPanel>
               <Languages languages={languages}/>
+            </TabPanel>
+            <TabPanel>
+              <Text>Created: <Badge variant='solid' colorScheme='blue'>{dateDiffOutput(dateCreated)}</Badge></Text>
+              <Text>Updated: <Badge variant='solid' colorScheme='green'>{dateDiffOutput(dateUpdated)}</Badge></Text>
+              
+              
             </TabPanel>
           </TabPanels>
         </Tabs>

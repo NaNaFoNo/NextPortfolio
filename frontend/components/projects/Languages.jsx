@@ -23,7 +23,7 @@ const Languages = ({ languages }) => {
 
     obj.language = lang
     obj.stat = Math.round(langValues[index] / langSum * 100)
-    obj.color = svgObject.color
+    obj.color = svgObject?.color
     LangData.push(obj)
   })
  

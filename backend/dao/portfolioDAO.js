@@ -22,7 +22,7 @@ export default class PortfolioDAO {
 
     static async getProjects() {
         try {
-            return await portfolio.find().toArray() 
+            return await portfolio.find().sort( { updated : -1 } ).toArray() 
         } catch (e) {
             console.error(`Unable to get projects: ${e}`)
             return { error: e }
