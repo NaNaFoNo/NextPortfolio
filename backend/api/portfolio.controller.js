@@ -36,7 +36,7 @@ export default class PortfolioController {
                 topics: GitRepo.data.topics,
                 languages: GitLang.data,
                 created: new Date(GitRepo.data.created_at),
-                updated: new Date(GitRepo.data.updated_at),  
+                updated: new Date(GitRepo.data.pushed_at),  
             }
 
             const ProjectResponse = await PortfolioDAO.addProject(projectDoc)
