@@ -58,22 +58,22 @@ export const dateDiffOutput = function (d1) {
   let timeLaps = DateDiff.inHours(d1, d2);
 
   if (timeLaps<24) {
-    dateOutput = timeLaps+" hour/s ago";
+    dateOutput = timeLaps+" hour/s";
   } else {
     timeLaps = DateDiff.inDays(d1, d2);
     if (timeLaps<7) {
-      dateOutput = timeLaps+" day/s ago";
+      dateOutput = timeLaps+" day/s";
     } else {
       timeLaps = DateDiff.inWeeks(d1, d2);
       if (timeLaps<4) {
-        dateOutput = timeLaps+" week/s ago";
+        dateOutput = timeLaps+" week/s";
       } else {
         timeLaps = DateDiff.inMonths(d1, d2);
         if (timeLaps<12) {
-          dateOutput = timeLaps+" month/s ago";
+          dateOutput = timeLaps+" month/s";
         } else {
                 timeLaps = DateDiff.inYears(d1, d2);
-                dateOutput = timeLaps+" year/s ago";
+                dateOutput = timeLaps+" year/s";
         }
       }
     }

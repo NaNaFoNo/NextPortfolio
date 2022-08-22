@@ -8,33 +8,17 @@ import {
   Text,
   Stack,
   useColorModeValue,
-  Wrap,
   IconButton,
-  Link,
-  Tabs, 
-  TabList, 
-  TabPanels, 
-  Tab, 
-  TabPanel,
-  Badge
+  Link
 } from '@chakra-ui/react';
 
-import Languages from './Languages'
-import TechIcon from './TechIcon';
+import ProjectData from "./ProjectData";
 
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { BsGithub } from 'react-icons/bs'
 
-import { dateDiffOutput } from "../../utils/dateDiff";
 
-
-const ProjectCard = ({ projectData: { name, description, image_url, topics, github, url, languages, created, updated }}) => {
-  
-  let dateCreated = new Date(created)
-  let dateUpdated = new Date(updated)
-  let dateNow = new Date()
-
-  
+const ProjectCard = ({ projectData: { name, description, image_url, topics, github, homepage_url, languages, created, updated }}) => {  
   return (
     <Center transform="scale(1.0)" transition="0.3s ease-in-out" _hover={{
       transform: 'scale(1.05)',
@@ -58,8 +42,8 @@ const ProjectCard = ({ projectData: { name, description, image_url, topics, gith
           pos={'relative'}>
           <Box pos={'absolute'} zIndex={'2'} right={'2'} top={'1'}>
             <Flex flexDir={'column'}>
-              {url && 
-                <Link href={url} isExternal m={'1'}>
+              {homepage_url && 
+                <Link href={homepage_url} isExternal m={'1'}>
                   <IconButton
                     colorScheme='blue'
                     aria-label='Call Segun'
@@ -108,32 +92,7 @@ const ProjectCard = ({ projectData: { name, description, image_url, topics, gith
           </Text>
         </Stack>
 
-        <Tabs mt={4} isFitted>
-          <TabList>
-            <Tab>Stack</Tab>
-            <Tab>Languages</Tab>
-            <Tab>Stats</Tab>
-          </TabList>
-
-          <TabPanels>
-            <TabPanel>
-              <Wrap align={'center'} justify={'space-around'} direction={'row'} mt={6} h={'auto'} >
-                {topics?.map((tech, index) => (
-                  <TechIcon techName= {tech} key={index}/>
-                ))}
-              </Wrap>
-            </TabPanel>
-            <TabPanel>
-              <Languages languages={languages}/>
-            </TabPanel>
-            <TabPanel>
-              <Text>Created: <Badge variant='solid' colorScheme='blue'>{dateDiffOutput(dateCreated)}</Badge></Text>
-              <Text>Updated: <Badge variant='solid' colorScheme='green'>{dateDiffOutput(dateUpdated)}</Badge></Text>
-              
-              
-            </TabPanel>
-          </TabPanels>
-        </Tabs>
+        <ProjectData projectData={{topics, languages, created, updated}}/>
         
       </Box>
     </Center>      
