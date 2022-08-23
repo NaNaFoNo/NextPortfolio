@@ -23,6 +23,7 @@ export default class PortfolioController {
         try {
             const projectName = req.body.project_name
             const image_url = req.body.image_url
+            const category = req.body.category
             const GitRepo = await GitController.apiGetProjectInfo(projectName)
             const GitLang = await GitController.apiGetRepoLanguages(projectName)
             
@@ -31,6 +32,7 @@ export default class PortfolioController {
                 name: projectName,
                 image_url: image_url,
                 description: GitRepo.data.description,
+                category: category,
                 git_url: GitRepo.data.html_url,
                 homepage_url: GitRepo.data.homepage,
                 topics: GitRepo.data.topics,
