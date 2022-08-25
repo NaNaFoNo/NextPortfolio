@@ -112,18 +112,18 @@ const ProjectData = ({ projectData: { topics, languages, created, updated }}) =>
         </TabPanel>
         <TabPanel>
           <Text textAlign={'center'}>
-            Created 
+            {'Created  '}  
             <Badge variant='solid' colorScheme='blue'>
               {dateDiffOutput(dateCreated)}
             </Badge>
-             ago
+              {' ago'}
           </Text>
           <Text textAlign={'center'}>
-            Updated 
+            {'Last Update  '}  
             <Badge variant='solid' colorScheme='green'>
               {dateDiffOutput(dateUpdated)}
             </Badge>
-             ago
+            {' ago'}
           </Text>
         </TabPanel>
       </TabPanels>

@@ -17,7 +17,8 @@ export default function Home({ projects }) {
   const [searchFilter, setSearchFilter] = useState({})
 
   const childToParent = (childData) => {
-    setSearchFilter(childData)
+
+    setSearchFilter({ ...searchFilter, ...childData})
   }
 
   useEffect(() => {

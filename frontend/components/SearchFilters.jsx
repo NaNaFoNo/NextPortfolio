@@ -1,17 +1,13 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
 import { Flex, Select, Box, Text} from '@chakra-ui/react';
 
 import { filterData } from '../utils/filterData';
 
 const SearchFilters = ({childToParent}) => {
-  const [filters, setFilters] = useState(filterData);
- 
- 
-
+  
   return (
     <Flex  p="4" justifyContent="center" flexWrap="wrap">
-      {filters?.map((filter) => (
+      {filterData?.map((filter) => (
         <Box key={filter.queryName}>
           <Text>{filter.queryName + ' :'}</Text>
           <Select
