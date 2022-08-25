@@ -1,20 +1,20 @@
 import React from 'react'
-import { Flex, Select, Box, Text} from '@chakra-ui/react';
+import { Flex, Select, Box, Badge} from '@chakra-ui/react';
 
 import { filterData } from '../utils/filterData';
 
-const SearchFilters = ({childToParent}) => {
+const SearchFilters = ({getFilters}) => {
   
   return (
     <Flex  p="4" justifyContent="center" flexWrap="wrap">
       {filterData?.map((filter) => (
-        <Box key={filter.queryName}>
-          <Text>{filter.queryName + ' :'}</Text>
+        <Box display={'flex'} flexDir={'column'} alignItems={'center'} key={filter.queryName}>
+          <Badge variant='subtle'>{filter.queryName}</Badge>
           <Select
             placeholder={filter.placeholder} 
             w="fit-content"
             p="2"
-            onChange={(e) => childToParent({ [filter.queryName]: e.target.value })}
+            onChange={(e) => getFilters({ [filter.queryName]: e.target.value })}
           >
             {filter?.items?.map((item) => (
               <option value={item.value} key={item.value}>
