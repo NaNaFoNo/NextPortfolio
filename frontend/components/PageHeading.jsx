@@ -11,7 +11,7 @@ const PageHeading = ({ page }) => {
   }
 
   return (
-    <Box textAlign={'center'} textTransform={'uppercase'}>
+    <Box textAlign={'center'} textTransform={'uppercase'} mb={4}>
       <Heading size={'2xl'} color={'gray.600'} opacity={'55%'}>
         {headData.bgTop}
       </Heading> 
