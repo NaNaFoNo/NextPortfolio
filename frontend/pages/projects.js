@@ -2,8 +2,13 @@ import { useState, useEffect } from 'react';
 
 import {
   Container,
-  Wrap
+  Wrap, 
+  Flex,
+  Text,
+  Icon
 } from '@chakra-ui/react';
+
+import { BsFilter } from 'react-icons/bs';
 
 import ProjectsDataService from '../utils/projects'
 
@@ -13,12 +18,13 @@ import SearchFilters from '../components/SearchFilters';
 
 
 export default function Home({ projects }) {
+  const [searchFilters, setSearchFilters] = useState(false);
   const [projectStore, setProjectStore] = useState(projects)
   const [searchFilter, setSearchFilter] = useState({})
 
-  const childToParent = (childData) => {
+  const getFilters = (newFilter) => {
 
-    setSearchFilter({ ...searchFilter, ...childData})
+    setSearchFilter({ ...searchFilter, ...newFilter})
   }
 
   useEffect(() => {
@@ -43,8 +49,25 @@ export default function Home({ projects }) {
   
   return (
     <Container maxW={'7xl'} p="12">
-      <PageHeading page={'projects'} />
-      <SearchFilters childToParent={childToParent}/>
+      <PageHeading page={'projects'}/>
+      <Flex
+          cursor="pointer"
+          borderBottom="1px"
+          borderColor="gray.300"
+          p="2"
+          fontWeight="bold"
+          fontSize="lg"
+          justifyContent="flex-end"
+          alignItems="center"
+          onClick={() => {
+            setSearchFilters((prevFilters) => !prevFilters );
+            if (searchFilters) setSearchFilter({});
+          }}
+      >
+          <Text>Filter Projects</Text>
+          <Icon paddingLeft="2" w="7" as={BsFilter} />
+      </Flex>
+      { searchFilters && <SearchFilters getFilters={getFilters}/>}
       <Wrap mt={'3rem'} spacing={'50px'} align={'center'} justify={'center'} overflow={'no'}>
         {projectStore?.map((project) => <ProjectCard projectData={project} key={project._id}/>)}
       </Wrap>
