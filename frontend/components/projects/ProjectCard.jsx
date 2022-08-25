@@ -8,6 +8,7 @@ import {
   Text,
   Stack,
   useColorModeValue,
+  Icon,
   IconButton,
   Link
 } from '@chakra-ui/react';
@@ -15,10 +16,19 @@ import {
 import ProjectData from "./ProjectData";
 
 import { ExternalLinkIcon } from '@chakra-ui/icons'
-import { BsGithub } from 'react-icons/bs'
+import { FaVideo, FaLaptopCode, FaBookReader, FaGithub } from 'react-icons/fa'
 
 
-const ProjectCard = ({ projectData: { name, description, image_url, topics, github, homepage_url, languages, created, updated }}) => {  
+const ProjectCard = ({ projectData: { name, description, image_url, topics, github, homepage_url, languages, created, updated, category }}) => {
+  let categoryIcon 
+  if (category == 'personal') {
+    categoryIcon = FaLaptopCode
+  } else if (category == 'education') {
+    categoryIcon = FaBookReader
+  } else if (category == 'tutorial') {
+    categoryIcon = FaVideo
+  }
+
   return (
     <Center transform="scale(1.0)" transition="0.3s ease-in-out" _hover={{
       transform: 'scale(1.05)',
@@ -40,6 +50,18 @@ const ProjectCard = ({ projectData: { name, description, image_url, topics, gith
           mx={-6}
           mb={6}
           pos={'relative'}>
+          <Box
+            display={'flex'}
+            pos={'absolute'}
+            left={'3'} 
+            top={'2'}
+            zIndex={'2'}
+            p={1.5}
+            borderRadius={'50%'}
+            bg={useColorModeValue('white', 'gray.800')}
+          >
+            <Icon as={categoryIcon} w={4} h={4} />   
+          </Box>
           <Box pos={'absolute'} zIndex={'2'} right={'2'} top={'1'}>
             <Flex flexDir={'column'}>
               {homepage_url && 
@@ -63,7 +85,7 @@ const ProjectCard = ({ projectData: { name, description, image_url, topics, gith
                   colorScheme='blue'
                   aria-label='Call Segun'
                   size='sm'
-                  icon={<BsGithub size={'1.2rem'}/>}
+                  icon={<FaGithub size={'1.2rem'}/>}
                   transform="scale(1.0)" 
                   transition="0.3s ease-in-out" 
                   _hover={{
