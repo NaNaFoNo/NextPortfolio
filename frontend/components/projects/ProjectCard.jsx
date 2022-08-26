@@ -19,7 +19,7 @@ import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { FaVideo, FaLaptopCode, FaBookReader, FaGithub } from 'react-icons/fa'
 
 
-const ProjectCard = ({ projectData: { name, description, image_url, topics, github, homepage_url, languages, created, updated, category }}) => {
+const ProjectCard = ({ projectData: { name, description, image_url, topics, git_url, homepage_url, languages, created, updated, category }}) => {
   let categoryIcon 
   if (category == 'personal') {
     categoryIcon = FaLaptopCode
@@ -80,7 +80,7 @@ const ProjectCard = ({ projectData: { name, description, image_url, topics, gith
                 </Link>
               }
               
-              <Link href= {github} isExternal m={'1'}>
+              <Link href= {git_url} isExternal m={'1'}>
                 <IconButton
                   colorScheme='blue'
                   aria-label='Call Segun'
