@@ -1,6 +1,7 @@
 import React from 'react'
 import {
   Wrap,
+  Flex,
   Box,
   Text,
   Icon, 
@@ -13,30 +14,24 @@ import {
   Badge
 } from '@chakra-ui/react';
 
-import { svgTechIcons } from '../../utils/svgIcon'
 import { dateDiffOutput } from "../../utils/dateDiff";
 
-const TopicIcon = ({ techName }) => {
-  const svgObject= svgTechIcons.find((tech) => tech.name.toLowerCase() == techName.toLowerCase());
+import  icons  from '../icons/svgIcons';
 
+const TopicIcon = ({ techName }) => {
+  const iconData= icons.find((tech) => tech.name.toLowerCase() == techName.toLowerCase());
   return (
     <>
-      { svgObject && 
-        <>
+      {iconData && (
+        <Flex flexDir={'column'} justifyContent={'center'} alignItems={'center'}>
           <Icon 
-            boxSize="10" 
-            viewBox="0 0 24 24" 
-            fill= {
-              svgObject.color == '#000000' ? 
-                useColorModeValue('#000000', '#FFF') 
-                : 
-                svgObject.color
-            }
-          >
-            <path d= {svgObject.path}/>
-            <title>{svgObject.name}</title>
-          </Icon>
-        </>
+            as={iconData.icon} 
+            fill={ useColorModeValue(iconData.light, iconData.dark) } 
+            boxSize="55" 
+            viewBox="0 0 24 24" />
+          <Badge mt={3} variant='subtle'>{techName}</Badge>
+        </Flex>
+      )
       }
     </>
   )
@@ -53,12 +48,12 @@ const Languages = ({ languages }) => {
   const langValues = Object.values(sortedLanguages)
   const langSum = langValues.reduce((a, b) => a + b)
   const data = Object.keys(sortedLanguages).map((lang, index) => {
-    const svgObject= svgTechIcons.find((tech) => tech.name.toLowerCase() == lang.toLowerCase());
+    const iconData= icons.find((tech) => tech.name.toLowerCase() == lang.toLowerCase());
     let obj = {}
 
     obj.language = lang
     obj.stat = Math.round(langValues[index] / langSum * 100)
-    obj.color = svgObject?.color
+    obj.color = iconData?.color
     LangData.push(obj)
   })
  
@@ -101,7 +96,7 @@ const ProjectData = ({ projectData: { topics, languages, created, updated }}) =>
       </TabList>
       <TabPanels>
         <TabPanel>
-          <Wrap align={'center'} justify={'space-around'} direction={'row'} mt={6} h={'auto'} >
+          <Wrap align={'center'} justify={'center'} spacing={'40px'} direction={'row'} mt={6} h={'auto'} >
             {topics?.map((tech, index) => (
               <TopicIcon techName= {tech} key={index}/>
             ))}
@@ -113,14 +108,14 @@ const ProjectData = ({ projectData: { topics, languages, created, updated }}) =>
         <TabPanel>
           <Text textAlign={'center'}>
             {'Created  '}  
-            <Badge variant='solid' colorScheme='blue'>
+            <Badge variant='outline' colorScheme='blue'>
               {dateDiffOutput(dateCreated)}
             </Badge>
               {' ago'}
           </Text>
           <Text textAlign={'center'}>
             {'Last Update  '}  
-            <Badge variant='solid' colorScheme='green'>
+            <Badge variant='outline' colorScheme='green'>
               {dateDiffOutput(dateUpdated)}
             </Badge>
             {' ago'}
