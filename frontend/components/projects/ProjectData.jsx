@@ -90,11 +90,40 @@ const ProjectData = ({ projectData: { topics, languages, created, updated }}) =>
   return (
     <Tabs mt={4} isFitted>
       <TabList>
-        <Tab>Stack</Tab>
-        <Tab>Languages</Tab>
         <Tab>Stats</Tab>
+        <Tab>Languages</Tab>
+        <Tab>Stack</Tab>
       </TabList>
       <TabPanels>
+        <TabPanel>
+          <Flex justifyContent= {'space-around'} alignItems={'center'}>
+            <Text textAlign={''}>
+              {'Created:'}    
+            </Text>
+            <Text>
+              <Badge variant='outline' colorScheme='blue' textAlign={'center'}>
+                {dateDiffOutput(dateCreated)}
+              </Badge>
+              {' ago'}
+            </Text>
+          </Flex>
+          <Flex justifyContent= {'space-around'} alignItems={'center'}>
+            <Text textAlign={''}>
+            {'Updated:'}    
+            </Text>
+            <Text>
+              <Badge variant='outline' colorScheme='green' textAlign={'center'}>
+                {dateDiffOutput(dateUpdated)}
+              </Badge>
+              {' ago'}
+            </Text>
+          </Flex>
+        </TabPanel>
+
+        <TabPanel>
+          <Languages languages={languages}/>
+        </TabPanel>
+
         <TabPanel>
           <Wrap align={'center'} justify={'center'} spacing={'40px'} direction={'row'} mt={6} h={'auto'} >
             {topics?.map((tech, index) => (
@@ -102,25 +131,8 @@ const ProjectData = ({ projectData: { topics, languages, created, updated }}) =>
             ))}
           </Wrap>
         </TabPanel>
-        <TabPanel>
-          <Languages languages={languages}/>
-        </TabPanel>
-        <TabPanel>
-          <Text textAlign={'center'}>
-            {'Created  '}  
-            <Badge variant='outline' colorScheme='blue'>
-              {dateDiffOutput(dateCreated)}
-            </Badge>
-              {' ago'}
-          </Text>
-          <Text textAlign={'center'}>
-            {'Last Update  '}  
-            <Badge variant='outline' colorScheme='green'>
-              {dateDiffOutput(dateUpdated)}
-            </Badge>
-            {' ago'}
-          </Text>
-        </TabPanel>
+        
+        
       </TabPanels>
     </Tabs>
   )
