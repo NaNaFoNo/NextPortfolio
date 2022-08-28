@@ -10,9 +10,16 @@ export const filterData = [
   },
   {
     items: [
+      { name: 'Chakra-UI', value: 'chakraui' },
+      { name: 'Express', value: 'express' },
+      { name: 'MongoDB', value: 'mongodb' },
       { name: 'Node.js', value: 'nodejs' },
       { name: 'Next.js', value: 'nextjs' },
-      { name: 'Express', value: 'express' },
+      { name: 'PostgreSQL', value: 'postgresql' },
+      { name: 'Truffle', value: 'truffle' },
+      { name: 'Web3.js', value: 'web3js' },
+      { name: 'Webpack', value: 'webpack' },
+      
     ],
     placeholder: 'all',
     queryName: 'topic',
