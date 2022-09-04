@@ -4,7 +4,7 @@
 //** Auth0 */
 //** B */
 //** C */
-//** Chakra-UI, CSS */
+//** Chakra-UI, Clarinet, CSS */
 //** D */
 //** E */
 //** Express */
@@ -70,6 +70,19 @@ const ChakraUI = createIcon({
 })
 
 icons.push({name:'ChakraUI', icon: ChakraUI})
+
+
+//** Clarinet */
+const Clarinet = createIcon({
+  displayName: 'Clarinet',
+  viewBox: '0 0 36 26',
+  path: [
+    <path fill="#319795" d="M26.8 0H8.8L0 13L8.76 26H26.76L35.53 13L26.8 0ZM24.22 15.32H20.3L23 19.5H21L17.79 14.59L14.56 19.5H12.56L15.3 15.33H11.34V13.75H24.22V15.32ZM24.22 12.22H11.34V10.63H15.19L12.49 6.5H14.49L17.74 11.5L21 6.5H23L20.29 10.63H24.14L24.22 12.22Z"/>,
+    <title>Clarinet</title>
+  ],
+})
+
+icons.push({name:'Clarinet', light:"black", dark: "white",icon: Clarinet})
 
 
 //** CSS */
