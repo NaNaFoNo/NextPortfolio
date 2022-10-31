@@ -11,7 +11,8 @@ import {
   TabPanels, 
   Tab, 
   TabPanel,
-  Badge
+  Badge,
+  HStack
 } from '@chakra-ui/react';
 
 import { dateDiffOutput } from "../../utils/dateDiff";
@@ -96,28 +97,34 @@ const ProjectData = ({ projectData: { topics, languages, created, updated }}) =>
       </TabList>
       <TabPanels>
         <TabPanel>
-          <Flex justifyContent= {'space-around'} alignItems={'center'}>
-            <Text textAlign={''}>
+          <Text fontSize='xl' color={'#f79412'}>
+            {'{'}    
+          </Text>
+          <HStack spacing= {'24px'} ml= {'2rem'}>
+            <Text w={'100px'}>
               {'Created:'}    
             </Text>
-            <Text>
-              <Badge variant='outline' colorScheme='blue' textAlign={'center'}>
-                {dateDiffOutput(dateCreated)}
+            <Text  textAlign={'right'}>
+              <Badge variant='outline' colorScheme='blue' >
+                {dateCreated.toLocaleDateString(undefined,{ year: 'numeric', month: 'long' } )}
               </Badge>
-              {' ago'}
+              {' ,'}
             </Text>
-          </Flex>
-          <Flex justifyContent= {'space-around'} alignItems={'center'}>
-            <Text textAlign={''}>
-            {'Updated:'}    
+          </HStack>
+          <HStack spacing= {'24px'} ml= {'2rem'}>
+            <Text w={'100px'}>
+            {'Last Update:'}    
             </Text>
-            <Text>
-              <Badge variant='outline' colorScheme='green' textAlign={'center'}>
-                {dateDiffOutput(dateUpdated)}
+            <Text textAlign={'left'}>
+              <Badge variant='outline' colorScheme='green' >
+                {dateDiffOutput(dateUpdated)+ ' ago'}
               </Badge>
-              {' ago'}
+             
             </Text>
-          </Flex>
+          </HStack>
+          <Text fontSize='xl' color={'#f79412'}>
+            {'}'}    
+          </Text>
         </TabPanel>
 
         <TabPanel>
