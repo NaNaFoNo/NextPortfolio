@@ -59,6 +59,16 @@ export const contentAbout = {
   timelineItems: [
     {
       _id: 'time1',
+      name: 'Clarity Camp Cohort #4',
+      start: '08/2021',
+      end: '10/2021',
+      source: 'Stacks Foundation',
+      description: 'Learning how to unleash the full power of smart contracts for Bitcoin through the Clarity smart contract language on Stacks.',
+      link: '',
+      rubric: 'certificate'
+    },
+    {
+      _id: 'time1',
       name: 'Intro to Programming',
       start: '04/2021',
       end: '06/2021',

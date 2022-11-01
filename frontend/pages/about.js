@@ -24,7 +24,7 @@ const Card =({ children }) => {
   return (
     <>
       <Box
-        bg={useColorModeValue('gray.100', 'gray.900')}
+        bg={useColorModeValue('gray.50', 'gray.900')}
         boxShadow={'dark-lg'}
         rounded={'md'}
         p={4}
@@ -73,38 +73,62 @@ const TimelineCard =({ timeData: { name, start, end, source, description, link, 
     <>
       <Card >
         <TimelineIcon rubric= {rubric} />
-        <Badge
-          p={'.2rem .6rem'}
-          borderRadius={'15px'}
-          fontSize={'.8rem'}
-          textTransform={'uppercase'}
-          ml={'2rem'}
-          bg={useColorModeValue('gray.100', 'gray.700')}
-          fontWeight={'500'}
-        >
-            { start + ' - ' + end }
-        </Badge>
-        <Heading
-          p={'1rem 0'}
-          ml={'2rem'}
-          fontWeight={'600'}
-          fontSize={'1.2rem'}
-          textTransform={'uppercase'}
-        >
-          {name}
-          <br />
-          <Box as={'span'}  >
-            - {source}
+        <Box position={'relative'}>
+          <Box 
+            position={'absolute'}
+            right= {'45px'}
+            top= {'0'}
+            
+          >
+            <Badge
+              p={'.2rem .6rem'}
+              borderRadius={'15px'}
+              fontSize={'1rem'}
+              textTransform={'uppercase'}
+              bg={useColorModeValue('gray.300', 'gray.700')}
+              fontWeight={'500'}
+            >
+              { start + ' - ' + end }
+            </Badge>
           </Box>
-        </Heading>
-        <Box as='p' ml={'2rem'}>
-          {description + ' '}
-          {{link} && 
-            <Link href={{ link }} color={'#f79412'}>
-              <Icon as={ExternalLinkIcon} boxSize={'1.1rem'}/> 
-            </Link>
-          }
         </Box>
+        
+        <Box m={'2rem 2rem 0'}>
+          <Text fontSize='2xl' color={'#f79412'} as='kbd'>
+            {'{' }
+            <br />    
+          </Text>
+          <Text color={'#f79412'} as='kbd' ml={'1rem'}>
+            {'title:'}    
+          </Text>
+          <Text
+            ml={'2rem'}
+            fontWeight={'600'}
+            fontSize={'1.4rem'}
+            textTransform={'uppercase'}
+          >
+            {name}
+            <br />
+            <Box as={'span'}  >
+              - {source}
+            </Box>
+          </Text>
+          <Text  color={'#f79412'} as='kbd' ml={'1rem'}>
+            {'info:'}    
+          </Text>
+          <Box as='p' ml={'2rem'}>
+            {description + ' '}
+            {{link} && 
+              <Link href={{ link }} color={'#f79412'}>
+                <Icon as={ExternalLinkIcon} boxSize={'1.1rem'}/> 
+              </Link>
+            }
+          </Box>
+          <Text fontSize='2xl' color={'#f79412'} as='kbd'>
+            {'}'}    
+          </Text>
+        </Box>
+        
       </Card>
     </>
   )
@@ -122,21 +146,21 @@ const TimelineIcon = ({rubric}) => {
 
   return (
     <Box position={'relative'}>
-          <Box 
-            position={'absolute'}
-            w={'50px'}
-            h={'50px'}
-            left= {'-38px'}
-            top= {'0'}
-            bg={'#f79412'}
-            borderRadius={'50%'}
-            display={'flex'}
-            alignItems={'center'}
-            justifyContent={'center'}
-          >
-            <Icon as={ icon } boxSize={'1.3rem'}/>
-          </Box>
-        </Box>
+      <Box 
+        position={'absolute'}
+        w={'50px'}
+        h={'50px'}
+        left= {'-38px'}
+        top= {'0'}
+        bg={'#f79412'}
+        borderRadius={'50%'}
+        display={'flex'}
+        alignItems={'center'}
+        justifyContent={'center'}
+      >
+        <Icon as={ icon } boxSize={'1.3rem'}/>
+      </Box>
+    </Box>
   )
 }
 
@@ -178,7 +202,7 @@ export default function about() {
       <Divider />
 
       <Box p={{ base:'2rem 4rem' , md: '4rem 8rem'}}>
-        <Heading mb={'2rem'}>My code Timeline</Heading>
+        <Heading mb={'2rem'}>My Timeline</Heading>
         <Grid
           gridTemplateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }}
           gap={['2rem', null ,'3rem', '4rem']}
