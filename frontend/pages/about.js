@@ -118,8 +118,8 @@ const TimelineCard =({ timeData: { name, start, end, source, description, link, 
           </Text>
           <Box as='p' ml={'2rem'}>
             {description + ' '}
-            {{link} && 
-              <Link href={{ link }} color={'#f79412'}>
+            {link && 
+              <Link href={ link } color={'#f79412'}>
                 <Icon as={ExternalLinkIcon} boxSize={'1.1rem'}/> 
               </Link>
             }
