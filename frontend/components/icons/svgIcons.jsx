@@ -4,7 +4,7 @@
 //** Auth0 */
 //** B */
 //** C */
-//** Chakra-UI, Clarinet, CSS */
+//** Chakra-UI, Clarinet, Clarity, CSS */
 //** D */
 //** E */
 //** Express */
@@ -83,6 +83,7 @@ const Clarinet = createIcon({
 })
 
 icons.push({name:'Clarinet', light:"black", dark: "white",icon: Clarinet})
+
 
 //** Clarity */
 const Clarity = createIcon({
