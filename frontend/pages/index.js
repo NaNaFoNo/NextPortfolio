@@ -50,8 +50,38 @@ export default function Home() {
               { heading.br && (<br />)}
             </>
           ))}
-        </Heading>    
-        <Text maxWidth={'75%'}>
+        </Heading>
+
+        <Box>
+          <Text fontSize='2xl' color={'#f79412'} as='kbd'>
+            {'{' }
+            <br />    
+          </Text>
+          {contentHome.info.map((info, index) => (
+            <>
+              <Text color={'#f79412'} as='kbd' ml={'1rem'}>
+                {info.tag} 
+                <br />   
+              </Text>
+              <Text
+                ml={'2rem'}
+                fontWeight={'600'}
+                fontSize={'1.4rem'}
+                textTransform={'uppercase'}
+              >
+                {info.value}
+              </Text>
+              
+            </>
+          ))}
+
+          <Text fontSize='2xl' color={'#f79412'} as='kbd'>
+            {'}'}
+            <br />  
+          </Text>
+        </Box>
+
+        <Text maxWidth={'75%'} mt={'1.5rem'}>
           {contentHome.text}
         </Text>
       </GridItem>

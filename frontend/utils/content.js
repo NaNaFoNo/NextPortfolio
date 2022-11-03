@@ -22,13 +22,19 @@ export const contentPageHeadings = [
 export const contentHome = {
   picture: "/home.jpg",
   heading: [
-    { text: "Welcome,", highlight: false, br: true },
-    { text: "I'm ", highlight: false, br: false },
-    { text: "ANDREAS VIETEN.", highlight: true, br: true },
-    { text: "Graduated", highlight: false, br: true },
-    { text: "BLOCKCHAIN- /", highlight: true, br: true },
-    { text: "WEB-DEVELOPER", highlight: true, br: true },
-    { text: "@Udacity", highlight: false, br: false },
+    { text: "Welcome to my ", highlight: false, br: false },
+    { text: "Portfolio!", highlight: true, br: false },
+    // { text: "I'm ", highlight: false, br: false },
+    // { text: "ANDREAS VIETEN.", highlight: true, br: true },
+    // { text: "Graduated", highlight: false, br: true },
+    // { text: "BLOCKCHAIN- /", highlight: true, br: true },
+    // { text: "WEB-DEVELOPER", highlight: true, br: true },
+    // { text: "@Udacity", highlight: false, br: false },
+  ],
+  info: [
+    { tag: "name:", value: "Andreas Vieten" },
+    { tag: "area:", value: "Blockchain- / Web-Development" },
+    { tag: "passion:", value: "Bitcoin" },
   ],
   text: 'Formerly Automotive Engineer turning Blockchain Developer. \
         Leaving my comfort zone and taking an asymmetric bet on the future. \
@@ -68,7 +74,7 @@ export const contentAbout = {
       rubric: 'certificate'
     },
     {
-      _id: 'time1',
+      _id: 'time2',
       name: 'Intro to Programming',
       start: '04/2021',
       end: '06/2021',
@@ -78,7 +84,7 @@ export const contentAbout = {
       rubric: 'certificate'
     },
     {
-      _id: 'time2',
+      _id: 'time3',
       name: 'Front End Web Developer',
       start: '06/2021',
       end: '08/21',
@@ -88,7 +94,7 @@ export const contentAbout = {
       rubric: 'certificate'
     },
     {
-      _id: 'time3',
+      _id: 'time4',
       name: 'PORTFOLIO BLOG WEBSITE',
       start: '06/2021',
       end: '08/21',
