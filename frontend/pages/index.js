@@ -65,9 +65,9 @@ export default function Home() {
               </Text>
               <Text
                 ml={'2rem'}
-                fontWeight={'600'}
-                fontSize={'1.4rem'}
-                textTransform={'uppercase'}
+                fontWeight={info.transform === 'none' ? ('100'):('600')}
+                fontSize={info.transform === 'none' ? ('1rem'):('1.4rem')}
+                textTransform={info.transform}
               >
                 {info.value}
               </Text>
@@ -80,10 +80,6 @@ export default function Home() {
             <br />  
           </Text>
         </Box>
-
-        <Text maxWidth={'75%'} mt={'1.5rem'}>
-          {contentHome.text}
-        </Text>
       </GridItem>
 
     </Grid>

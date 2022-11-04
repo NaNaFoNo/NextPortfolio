@@ -24,21 +24,16 @@ export const contentHome = {
   heading: [
     { text: "Welcome to my ", highlight: false, br: false },
     { text: "Portfolio!", highlight: true, br: false },
-    // { text: "I'm ", highlight: false, br: false },
-    // { text: "ANDREAS VIETEN.", highlight: true, br: true },
-    // { text: "Graduated", highlight: false, br: true },
-    // { text: "BLOCKCHAIN- /", highlight: true, br: true },
-    // { text: "WEB-DEVELOPER", highlight: true, br: true },
-    // { text: "@Udacity", highlight: false, br: false },
   ],
   info: [
-    { tag: "name:", value: "Andreas Vieten" },
-    { tag: "area:", value: "Blockchain- / Web-Development" },
-    { tag: "passion:", value: "Bitcoin" },
+    { tag: "name:", transform: 'uppercase', value: "Andreas Vieten" },
+    { tag: "area:", capitalize: 'uppercase', value: "Blockchain- / Web-Development" },
+    { tag: "passion:", transform: 'uppercase', value: "Bitcoin" },
+    { tag: "more:", transform: 'none', value: 'Formerly Automotive Engineer turning Blockchain Developer. \
+      Leaving my comfort zone and taking an asymmetric bet on the future. \
+      If you want to know more about my journey into the rabbit hole, check out my site.'
+    },
   ],
-  text: 'Formerly Automotive Engineer turning Blockchain Developer. \
-        Leaving my comfort zone and taking an asymmetric bet on the future. \
-        If you want to know more about my journey into the rabbit hole, check out my site.'
 }
 
 // About Content
