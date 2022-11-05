@@ -29,7 +29,7 @@ export const contentHome = {
     { tag: "name:", transform: 'uppercase', value: "Andreas Vieten" },
     { tag: "area:", capitalize: 'uppercase', value: "Blockchain- / Web-Development" },
     { tag: "passion:", transform: 'uppercase', value: "Bitcoin" },
-    { tag: "more:", transform: 'none', value: 'Formerly Automotive Engineer turning Blockchain Developer. \
+    { tag: "more:", transform: 'none', value: 'Automotive Engineer turning Blockchain Developer. \
       Leaving my comfort zone and taking an asymmetric bet on the future. \
       If you want to know more about my journey into the rabbit hole, check out my site.'
     },
@@ -53,9 +53,10 @@ export const contentAbout = {
     Let's work to build a better tomorrow.",
   ],
   stats: [
-    { _id: 'stat1', number: '1.5+', description: 'Years of continuous Programming' },
-    { _id: 'stat2', number: '4+', description: 'Graduated Programming Courses' },
-    { _id: 'stat3', number: '30+', description: 'Hours of Coding / last Month' },
+    { _id: 'stat1', number: '5+', description: 'years experience in the field of automotive engineerng' },
+    { _id: 'stat2', number: '3', description: 'years experience in the energy sector' },
+    { _id: 'stat3', number: '20', description: 'months focus on coding improvement' },
+    { _id: 'stat4', number: '18', description: 'months intense studying Bitcoin' },
   ],
   timelineItems: [
     {
@@ -65,7 +66,7 @@ export const contentAbout = {
       end: '10/2021',
       source: 'Stacks Foundation',
       description: 'Learning how to unleash the full power of smart contracts for Bitcoin through the Clarity smart contract language on Stacks.',
-      link: '',
+      link: 'https://clarity-lang.org/universe',
       rubric: 'certificate'
     },
     {
@@ -82,7 +83,7 @@ export const contentAbout = {
       _id: 'time3',
       name: 'Front End Web Developer',
       start: '06/2021',
-      end: '08/21',
+      end: '08/2021',
       source: 'Udacity',
       description: 'Certificate of Completion',
       link: 'https://graduation.udacity.com/confirm/QGNZJGAP',
@@ -92,7 +93,7 @@ export const contentAbout = {
       _id: 'time4',
       name: 'PORTFOLIO BLOG WEBSITE',
       start: '06/2021',
-      end: '08/21',
+      end: 'present',
       source: 'PROJECT',
       description: "You are looking at this page right now. I'm still working on it \
                     in the background for further improvements and functionality.",

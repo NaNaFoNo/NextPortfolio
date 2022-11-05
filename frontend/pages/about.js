@@ -166,7 +166,19 @@ const TimelineIcon = ({rubric}) => {
 
 export default function about() {
   const stats = contentAbout.stats
-  const timelineItems = contentAbout.timelineItems
+  const timelineItems = contentAbout.timelineItems.sort((a, b) => {
+    const date = new Date();
+    a = a.end.split("/");
+    b = b.end.split("/");
+
+    if (a[0] === "present") {
+      a = [date.getMonth(),date.getFullYear()]
+    }
+    if (b[0] === "present") {
+      b = [date.getMonth(),date.getFullYear()]
+    }
+    return  new Date(b[1], b[0], 1) - new Date(a[1], a[0], 1)
+  });
 
   return (
     <>
