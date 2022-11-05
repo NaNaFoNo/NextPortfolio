@@ -90,6 +90,46 @@ export const contentAbout = {
       rubric: 'certificate'
     },
     {
+      _id: 'time5',
+      name: 'Full Stack Web Developer',
+      start: '09/2021',
+      end: '11/2021',
+      source: 'Udacity',
+      description: 'Certificate of Completion',
+      link: 'https://graduation.udacity.com/confirm/5HP7FCYE',
+      rubric: 'certificate'
+    },
+    {
+      _id: 'time6',
+      name: 'Blockchain Developer',
+      start: '12/2021',
+      end: '02/2022',
+      source: 'Udacity',
+      description: 'Certificate of Completion',
+      link: 'https://graduation.udacity.com/confirm/7KHLXESF',
+      rubric: 'certificate'
+    },
+    {
+      _id: 'time7',
+      name: 'Bitcoin for Developers I',
+      start: '04/2022',
+      end: '05/2022',
+      source: 'Saylor.org Academy - CS120',
+      description: 'Certificate of Completion',
+      link: 'https://certificates.saylor.org/e84a9dcf-7349-4db0-9bb4-bbfb986065a2',
+      rubric: 'certificate'
+    },
+    {
+      _id: 'time7',
+      name: 'Bitcoin for Everybody',
+      start: '11/2021',
+      end: '11/2021',
+      source: 'Saylor.org Academy - PRDV151',
+      description: 'Certificate of Completion',
+      link: 'https://certificates.saylor.org/7871c09c-1621-46a1-8c78-5b7922b8dbcb',
+      rubric: 'certificate'
+    },
+    {
       _id: 'time4',
       name: 'PORTFOLIO BLOG WEBSITE',
       start: '06/2021',

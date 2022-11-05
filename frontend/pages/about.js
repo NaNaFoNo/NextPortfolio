@@ -119,7 +119,7 @@ const TimelineCard =({ timeData: { name, start, end, source, description, link, 
           <Box as='p' ml={'2rem'}>
             {description + ' '}
             {link && 
-              <Link href={ link } color={'#f79412'}>
+              <Link href={ link } color={'#f79412'} isExternal>
                 <Icon as={ExternalLinkIcon} boxSize={'1.1rem'}/> 
               </Link>
             }
@@ -170,6 +170,10 @@ export default function about() {
     const date = new Date();
     a = a.end.split("/");
     b = b.end.split("/");
+    if (a == b) {
+      a = a.start.split("/")
+      b = b.start.split("/")
+    }
 
     if (a[0] === "present") {
       a = [date.getMonth(),date.getFullYear()]
