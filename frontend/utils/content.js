@@ -55,15 +55,15 @@ export const contentAbout = {
   stats: [
     { _id: 'stat1', number: '5+', description: 'years experience in the field of automotive engineerng' },
     { _id: 'stat2', number: '3', description: 'years experience in the energy sector' },
-    { _id: 'stat3', number: '20', description: 'months focus on coding improvement' },
-    { _id: 'stat4', number: '18', description: 'months intense studying Bitcoin' },
+    { _id: 'stat3', number: '20', description: 'months focus on coding' },
+    { _id: 'stat4', number: '18', description: 'months intense study of Bitcoin' },
   ],
   timelineItems: [
     {
       _id: 'time1',
       name: 'Clarity Camp Cohort #4',
-      start: '08/2021',
-      end: '10/2021',
+      start: '08/2022',
+      end: '10/2022',
       source: 'Stacks Foundation',
       description: 'Learning how to unleash the full power of smart contracts for Bitcoin through the Clarity smart contract language on Stacks.',
       link: 'https://clarity-lang.org/universe',
