@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Heading, chakra } from '@chakra-ui/react'
+import { Box, Heading, Text, chakra } from '@chakra-ui/react'
 import { contentPageHeadings } from '../utils/content'
 
 
@@ -11,17 +11,17 @@ const PageHeading = ({ page }) => {
   }
 
   return (
-    <Box textAlign={'center'} textTransform={'uppercase'} mb={4}>
-      <Heading size={'2xl'} color={'gray.600'} opacity={'55%'}>
+    <Box textAlign={'center'}  mb={4}>
+      <Text fontSize={'4xl'} as={'kbd'} color={'gray.600'} opacity={'55%'}>
         {headData.bgTop}
-      </Heading> 
-      <Heading size={'xl'} >
+      </Text> 
+      <Heading size={'2xl'}  textTransform={'uppercase'} mt={'8px'}>
         {headData.head}
         <chakra.span color={'#f79412'}>{headData.headSp}</chakra.span>
       </Heading>
-      <Heading size={'2xl'} color={'gray.600'} opacity={'55%'}>
+      <Text fontSize={'4xl'} as={'kbd'} color={'gray.600'} opacity={'55%'}>
         {headData.bgBot}
-      </Heading>
+      </Text>
       
     </Box>
   )
