@@ -101,7 +101,7 @@ const ProjectData = ({ projectData: { topics, languages, created, updated }}) =>
             {'{'}    
           </Text>
           <HStack spacing= {'24px'} ml= {'2rem'}>
-            <Text w={'100px'}>
+            <Text w={'150px'} as={'kbd'}>
               {'Created:'}    
             </Text>
             <Text  textAlign={'right'}>
@@ -112,7 +112,7 @@ const ProjectData = ({ projectData: { topics, languages, created, updated }}) =>
             </Text>
           </HStack>
           <HStack spacing= {'24px'} ml= {'2rem'}>
-            <Text w={'100px'}>
+            <Text w={'150px'} as={'kbd'}>
             {'Last Update:'}    
             </Text>
             <Text textAlign={'left'}>
