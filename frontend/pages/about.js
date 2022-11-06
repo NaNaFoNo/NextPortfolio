@@ -58,6 +58,7 @@ const StatCard = ({ statData: { number, description }}) => {
               textTransform={'uppercase'}
               letterSpacing={'2px'}
               fontSize={'1.2rem'}
+              as={'kbd'}
             >
               {description}
             </Box>
