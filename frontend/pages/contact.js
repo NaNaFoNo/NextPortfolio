@@ -16,6 +16,8 @@ import {
     useClipboard,
     useColorModeValue,
     VStack,
+    Alert,
+    AlertIcon,
   } from '@chakra-ui/react';
 
 import React from 'react';
@@ -33,6 +35,7 @@ export default function ContactFormWithSocialButtons() {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [submitted, setSubmitted] = useState(false)
+  const [failed, setFailed] = useState(false)
 
   const handleSubmit = (e) => { 
     e.preventDefault()
@@ -57,20 +60,30 @@ export default function ContactFormWithSocialButtons() {
         setName('')
         setEmail('')
         setMessage('')
+      } else {
+        setFailed(true)
       }
     })
   }
 
+  useEffect(() => {
+    if (submitted === true) {
+      setTimeout(() => {
+        setSubmitted(false)
+      }, 3000);
+    }
+    if (failed === true) {
+      setTimeout(() => {
+        setFailed(false)
+      }, 3000);
+    }
+  }, [submitted, failed])
+  
+
   return (
-    <Flex
-      bg={useColorModeValue('gray.100', 'gray.900')}
-      align="center"
-      justify="center"
-      id="contact">
-      <Box
-        borderRadius="lg"
-        m={{ base: 5, md: 16, lg: 10 }}
-        p={{ base: 5, lg: 16 }}>
+    
+    <>
+      <Box p={{ base:'2rem 4rem' , md: '4rem 8rem'}}>
         <Box>
           <VStack spacing={{ base: 4, md: 8, lg: 20 }}>
             <PageHeading page={'contact'} />
@@ -93,7 +106,7 @@ export default function ContactFormWithSocialButtons() {
                     fontSize="3xl"
                     icon={<MdEmail />}
                     _hover={{
-                      bg: 'blue.500',
+                      bg: 'orange.500',
                       color: useColorModeValue('white', 'gray.700'),
                     }}
                     onClick={onCopy}
@@ -109,7 +122,7 @@ export default function ContactFormWithSocialButtons() {
                     fontSize="3xl"
                     icon={<BsGithub />}
                     _hover={{
-                      bg: 'blue.500',
+                      bg: 'orange.500',
                       color: useColorModeValue('white', 'gray.700'),
                     }}
                     isRound
@@ -123,7 +136,7 @@ export default function ContactFormWithSocialButtons() {
                     size="lg"
                     icon={<BsTwitter size="28px" />}
                     _hover={{
-                      bg: 'blue.500',
+                      bg: 'orange.500',
                       color: useColorModeValue('white', 'gray.700'),
                     }}
                     isRound
@@ -137,7 +150,7 @@ export default function ContactFormWithSocialButtons() {
                     size="lg"
                     icon={<BsLinkedin size="28px" />}
                     _hover={{
-                      bg: 'blue.500',
+                      bg: 'orange.500',
                       color: useColorModeValue('white', 'gray.700'),
                     }}
                     isRound
@@ -146,7 +159,7 @@ export default function ContactFormWithSocialButtons() {
               </Stack>
 
               <Box
-                bg={useColorModeValue('white', 'gray.700')}
+                bg={useColorModeValue('gray.200', 'gray.700')}
                 borderRadius="lg"
                 p={8}
                 color={useColorModeValue('gray.700', 'whiteAlpha.900')}
@@ -202,18 +215,30 @@ export default function ContactFormWithSocialButtons() {
                     bg="blue.400"
                     color="white"
                     _hover={{
-                      bg: 'blue.500',
+                      bg: 'orange.500',
                     }}
                     isfullwidth="true"
                     onClick={(e)=>{handleSubmit(e)}}>
                     Send Message
                   </Button>
+                  {submitted && (
+                    <Alert status='success'>
+                      <AlertIcon />
+                      Message submitted!
+                    </Alert>
+                  )}
+                  {failed && (
+                    <Alert status='error'>
+                      <AlertIcon />
+                      An error occured while sendign your message 
+                    </Alert>
+                  )}
                 </VStack>
               </Box>
             </Stack>
           </VStack>
         </Box>
       </Box>
-    </Flex>
+    </>
   );
 }
