@@ -16,6 +16,11 @@ import {
 } from '@chakra-ui/react';
 
 import { dateDiffOutput } from "../../utils/dateDiff";
+import { colorSchemes } from '../../utils/colors'
+
+const lightMode = colorSchemes.lightMode;
+const darkMode = colorSchemes.darkMode;
+
 
 import  icons  from '../icons/svgIcons';
 
@@ -87,9 +92,13 @@ const Languages = ({ languages }) => {
 const ProjectData = ({ projectData: { topics, languages, created, updated }}) => {
   let dateCreated = new Date(created)
   let dateUpdated = new Date(updated)
+  const colorAccent = useColorModeValue(lightMode.blue, darkMode.orange)
+  const neutrals = (l, d) => {
+    return useColorModeValue(lightMode.neutrals[l], darkMode.neutrals[d])
+  }
 
   return (
-    <Tabs mt={4} isFitted>
+    <Tabs mt={4} colorScheme={useColorModeValue('blue', 'orange')} isFitted>
       <TabList>
         <Tab>Stats</Tab>
         <Tab>Languages</Tab>
@@ -97,7 +106,7 @@ const ProjectData = ({ projectData: { topics, languages, created, updated }}) =>
       </TabList>
       <TabPanels>
         <TabPanel>
-          <Text fontSize='xl' color={'#f79412'}>
+          <Text fontSize='xl' color={colorAccent}>
             {'{'}    
           </Text>
           <HStack spacing= {'24px'} ml= {'2rem'}>
@@ -122,7 +131,7 @@ const ProjectData = ({ projectData: { topics, languages, created, updated }}) =>
              
             </Text>
           </HStack>
-          <Text fontSize='xl' color={'#f79412'}>
+          <Text fontSize='xl' color={colorAccent}>
             {'}'}    
           </Text>
         </TabPanel>

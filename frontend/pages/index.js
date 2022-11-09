@@ -6,13 +6,24 @@ import {
   Image,
   Heading,
   Text,
+  useColorModeValue,
 } from '@chakra-ui/react';
 
 import { contentHome } from '../utils/content'
+import { colorSchemes } from '../utils/colors'
+
+const lightMode = colorSchemes.lightMode;
+const darkMode = colorSchemes.darkMode;
 
 export default function Home() {
+  const colorAccent = useColorModeValue(lightMode.blue, darkMode.orange)
+  const neutrals = (l, d) => {
+    return useColorModeValue(lightMode.neutrals[l], darkMode.neutrals[d])
+  }
+
   return (
     <Grid
+      bg={neutrals(2,2)}
       templateAreas={[`"b""a"`, null, `"a b"`]}
       gridTemplateColumns={['1fr', null,'repeat(2, 1fr)']} 
       width={'100%'}
@@ -23,12 +34,13 @@ export default function Home() {
           h='100%' 
           w='65%' 
           pos={'absolute'} 
-          zIndex={'-1'} 
-          bg='gray.700' 
+          //zIndex={'-1'} 
+          bg={neutrals(6,4)}
           clipPath={'polygon(0 0, 46% 0, 79% 100%, 0% 100%)'}
         />
         <Container justifyContent='space-around' centerContent>
           <Image
+            zIndex={'1'} 
             src={contentHome.picture}
             objectFit={'cover'}
             w={'80%'}
@@ -43,7 +55,7 @@ export default function Home() {
             {contentHome.heading.map((heading, index) => (
             <>
               { heading.highlight ? (
-                <span style={ {color: '#f79412'} } key={index}>{heading.text}</span> 
+                <span style={ {color: colorAccent} } key={index}>{heading.text}</span> 
               ) : (
                 <span key={index}>{heading.text}</span>
               )}
@@ -53,13 +65,13 @@ export default function Home() {
         </Heading>
 
         <Box>
-          <Text fontSize='2xl' color={'#f79412'} as='kbd'>
+          <Text fontSize='2xl' color={colorAccent} as='kbd'>
             {'{' }
             <br />    
           </Text>
           {contentHome.info.map((info, index) => (
             <>
-              <Text color={'#f79412'} as='kbd' ml={'1rem'}>
+              <Text color={colorAccent} as='kbd' ml={'1rem'}>
                 {info.tag} 
                 <br />   
               </Text>
@@ -75,7 +87,7 @@ export default function Home() {
             </>
           ))}
 
-          <Text fontSize='2xl' color={'#f79412'} as='kbd'>
+          <Text fontSize='2xl' color={colorAccent} as='kbd'>
             {'}'}
             <br />  
           </Text>

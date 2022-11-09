@@ -26,7 +26,10 @@ import {
 
 
 import { contentNavbar } from '../utils/content'
+import { colorSchemes } from '../utils/colors'
 
+const lightMode = colorSchemes.lightMode;
+const darkMode = colorSchemes.darkMode;
 
 
 const Navbar = () => {
@@ -37,7 +40,10 @@ const Navbar = () => {
 
     return (
       <>
-        <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
+        <Box
+          px={4} 
+          bg={useColorModeValue(lightMode.green, darkMode.neutrals[1])} 
+          color={useColorModeValue(lightMode.neutrals[9], darkMode.neutrals[8])}>
           <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
             <IconButton
               size={'md'}
@@ -64,7 +70,7 @@ const Navbar = () => {
                     rounded={'md'}
                     _hover={{
                       textDecoration: 'none',
-                      bg: useColorModeValue('gray.200', 'gray.700'),
+                      bg: useColorModeValue(lightMode.neutrals[3], darkMode.neutrals[3]),
                     }}
                     href={ link =='Home' ? '/' : link.toLowerCase() }>
                     {link}
@@ -93,7 +99,7 @@ const Navbar = () => {
                   rounded={'md'}
                   _hover={{
                     textDecoration: 'none',
-                    bg: useColorModeValue('gray.200', 'gray.700'),
+                    bg: useColorModeValue(lightMode.neutrals[3], darkMode.neutrals[3]),
                   }}
                   href={ link =='Home' ? '/' : link.toLowerCase() }>
                   {link}

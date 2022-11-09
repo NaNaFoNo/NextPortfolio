@@ -18,8 +18,18 @@ import ProjectData from "./ProjectData";
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { FaVideo, FaLaptopCode, FaBookReader, FaGithub } from 'react-icons/fa'
 
+import { colorSchemes } from '../../utils/colors'
+
+const lightMode = colorSchemes.lightMode;
+const darkMode = colorSchemes.darkMode;
+
 
 const ProjectCard = ({ projectData: { name, description, image_url, topics, git_url, homepage_url, languages, created, updated, category }}) => {
+  const colorAccent = useColorModeValue(lightMode.blue, darkMode.orange)
+  const neutrals = (l, d) => {
+    return useColorModeValue(lightMode.neutrals[l], darkMode.neutrals[d])
+  }
+
   let categoryIcon 
   if (category == 'personal') {
     categoryIcon = FaLaptopCode
@@ -37,7 +47,7 @@ const ProjectCard = ({ projectData: { name, description, image_url, topics, git_
       <Box
         maxW={'445px'}
         w={'full'}
-        bg={useColorModeValue('white', 'gray.800')}
+        bg={neutrals(1,1)}
         boxShadow={'dark-lg'}
         rounded={'md'}
         p={6}
@@ -67,7 +77,8 @@ const ProjectCard = ({ projectData: { name, description, image_url, topics, git_
               {homepage_url && 
                 <Link href={homepage_url} isExternal m={'1'}>
                   <IconButton
-                    colorScheme='blue'
+                    bg= {colorAccent}
+                    color= 'black'
                     aria-label='Call Segun'
                     size='sm'
                     icon={<ExternalLinkIcon size={'1.2rem'}/>}
@@ -82,7 +93,8 @@ const ProjectCard = ({ projectData: { name, description, image_url, topics, git_
               
               <Link href= {git_url} isExternal m={'1'}>
                 <IconButton
-                  colorScheme='blue'
+                  bg= {colorAccent}
+                  color= 'black'
                   aria-label='Call Segun'
                   size='sm'
                   icon={<FaGithub size={'1.2rem'}/>}
@@ -104,12 +116,12 @@ const ProjectCard = ({ projectData: { name, description, image_url, topics, git_
         </Box>
         <Stack>
           <Heading
-            color={useColorModeValue('gray.700', 'white')}
+            color={neutrals(8,8)}
             fontSize={'2xl'}
             fontFamily={'body'}>
             {name.replace(/([A-Z])/g, ' $1').trim()}
           </Heading>
-          <Text color={'gray.500'}>
+          <Text color={neutrals(7,7)}>
             {description}
           </Text>
         </Stack>

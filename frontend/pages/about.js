@@ -18,13 +18,22 @@ import { ExternalLinkIcon } from '@chakra-ui/icons'
 
 import PageHeading from '../components/PageHeading';
 import { contentAbout } from '../utils/content'
+import { colorSchemes } from '../utils/colors'
+
+const lightMode = colorSchemes.lightMode;
+const darkMode = colorSchemes.darkMode;
+
 
 
 const Card =({ children }) => {
+  const neutrals = (l, d) => {
+    return useColorModeValue(lightMode.neutrals[l], darkMode.neutrals[d])
+  }
+
   return (
     <>
       <Box
-        bg={useColorModeValue('gray.50', 'gray.900')}
+        bg={neutrals(2,1)}
         boxShadow={'dark-lg'}
         rounded={'md'}
         p={4}
@@ -36,6 +45,8 @@ const Card =({ children }) => {
 }
 
 const StatCard = ({ statData: { number, description }}) => {
+  const colorAccent = useColorModeValue(lightMode.blue, darkMode.orange)
+
   return (
     <>
       <Card>
@@ -50,7 +61,7 @@ const StatCard = ({ statData: { number, description }}) => {
                 top: '15px',
                 width: '2rem',
                 height: '2px',
-                backgroundColor: '#f79412'
+                backgroundColor: colorAccent
               }}
               pl={'3rem'}
               pb={'0'}
@@ -70,6 +81,11 @@ const StatCard = ({ statData: { number, description }}) => {
 }
 
 const TimelineCard =({ timeData: { name, start, end, source, description, link, rubric }}) => {
+  const colorAccent = useColorModeValue(lightMode.blue, darkMode.orange)
+  const neutrals = (l, d) => {
+    return useColorModeValue(lightMode.neutrals[l], darkMode.neutrals[d])
+  }
+
   return (
     <>
       <Card >
@@ -86,7 +102,7 @@ const TimelineCard =({ timeData: { name, start, end, source, description, link, 
               borderRadius={'15px'}
               fontSize={'1rem'}
               textTransform={'uppercase'}
-              bg={useColorModeValue('gray.300', 'gray.700')}
+              bg={neutrals(4,4)}
               fontWeight={'500'}
             >
               { start + ' - ' + end }
@@ -95,11 +111,11 @@ const TimelineCard =({ timeData: { name, start, end, source, description, link, 
         </Box>
         
         <Box m={'2rem 2rem 0'}>
-          <Text fontSize='2xl' color={'#f79412'} as='kbd'>
+          <Text fontSize='2xl' color={colorAccent} as='kbd'>
             {'{' }
             <br />    
           </Text>
-          <Text color={'#f79412'} as='kbd' ml={'1rem'}>
+          <Text color={colorAccent} as='kbd' ml={'1rem'}>
             {'title:'}    
           </Text>
           <Text
@@ -114,18 +130,18 @@ const TimelineCard =({ timeData: { name, start, end, source, description, link, 
               - {source}
             </Box>
           </Text>
-          <Text  color={'#f79412'} as='kbd' ml={'1rem'}>
+          <Text  color={colorAccent} as='kbd' ml={'1rem'}>
             {'info:'}    
           </Text>
           <Box as='p' ml={'2rem'}>
             {description + ' '}
             {link && 
-              <Link href={ link } color={'#f79412'} isExternal>
+              <Link href={ link } color={colorAccent} isExternal>
                 <Icon as={ExternalLinkIcon} boxSize={'1.1rem'}/> 
               </Link>
             }
           </Box>
-          <Text fontSize='2xl' color={'#f79412'} as='kbd'>
+          <Text fontSize='2xl' color={colorAccent} as='kbd'>
             {'}'}    
           </Text>
         </Box>
@@ -136,6 +152,7 @@ const TimelineCard =({ timeData: { name, start, end, source, description, link, 
 }
 
 const TimelineIcon = ({rubric}) => {
+  const colorAccent = useColorModeValue(lightMode.blue, darkMode.orange)
   let icon 
   if (rubric == 'certificate') {
     icon = FaAward
@@ -153,7 +170,7 @@ const TimelineIcon = ({rubric}) => {
         h={'50px'}
         left= {'-38px'}
         top= {'0'}
-        bg={'#f79412'}
+        bg={colorAccent}
         borderRadius={'50%'}
         display={'flex'}
         alignItems={'center'}
@@ -166,6 +183,7 @@ const TimelineIcon = ({rubric}) => {
 }
 
 export default function about() {
+  const bgColor = useColorModeValue(lightMode.neutrals[2], darkMode.neutrals[2])
   const stats = contentAbout.stats
   const timelineItems = contentAbout.timelineItems.sort((a, b) => {
     const date = new Date();
@@ -187,7 +205,9 @@ export default function about() {
 
   return (
     <>
-      <Box p={{ base:'2rem 4rem' , md: '4rem 8rem'}}>
+      <Box 
+        p={{ base:'2rem 4rem' , md: '4rem 8rem'}} 
+        bg={bgColor}>
         <PageHeading page={'about'}/>
         <Grid
           gridTemplateColumns={['1fr', null,'repeat(2, 1fr)']} 
@@ -218,7 +238,9 @@ export default function about() {
 
       <Divider />
 
-      <Box p={{ base:'2rem 4rem' , md: '4rem 8rem'}}>
+      <Box 
+        p={{ base:'2rem 4rem' , md: '4rem 8rem'}}
+        bg={bgColor}>
         <Heading mb={'2rem'}>My Timeline</Heading>
         <Grid
           gridTemplateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }}

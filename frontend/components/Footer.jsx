@@ -5,12 +5,16 @@ import {
   useColorModeValue,
  } from '@chakra-ui/react';
 
+import { colorSchemes } from '../utils/colors'
+
+const lightMode = colorSchemes.lightMode;
+const darkMode = colorSchemes.darkMode;
 
 const Footer = () => {
   return (
     <Box
-      bg={useColorModeValue('gray.50', 'gray.900')}
-      color={useColorModeValue('gray.700', 'gray.200')}
+      bg={useColorModeValue(lightMode.green, darkMode.neutrals[1])} 
+      color={useColorModeValue(lightMode.neutrals[9], darkMode.neutrals[8])}
       height={'5rem'}
       justifyContent={'center'}
     >
