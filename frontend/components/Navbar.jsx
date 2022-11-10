@@ -89,17 +89,17 @@ const Navbar = () => {
           </Flex>
         </Box>
         {isOpen ? (
-          <Box pb={4} display={{ md: 'none' }}>
-            <Stack as={'nav'} spacing={4}>
+          <Box pb={4} display={{ md: 'none' }}  bg={useColorModeValue(lightMode.neutrals[3], darkMode.neutrals[3])}>
+            <Stack as={'nav'} spacing={3} pt={3}>
               {pages.map((link) => (
                 <Link
                   key={link}
-                  px={2}
-                  py={1}
+                  px={5}
+                  py={2}
                   rounded={'md'}
                   _hover={{
                     textDecoration: 'none',
-                    bg: useColorModeValue(lightMode.neutrals[3], darkMode.neutrals[3]),
+                    bg: useColorModeValue(lightMode.neutrals[5], darkMode.neutrals[5]),
                   }}
                   href={ link =='Home' ? '/' : link.toLowerCase() }>
                   {link}
