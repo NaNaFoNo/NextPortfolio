@@ -25,11 +25,20 @@ import { useState, useEffect } from 'react'
 import { BsGithub, BsLinkedin, BsPerson, BsTwitter } from 'react-icons/bs';
 import { MdEmail, MdOutlineEmail } from 'react-icons/md';
 import PageHeading from '../components/PageHeading';
+import { colorSchemes } from '../utils/colors'
+
+const lightMode = colorSchemes.lightMode;
+const darkMode = colorSchemes.darkMode;
 
 
 
 
 export default function ContactFormWithSocialButtons() {
+  const colorAccent = useColorModeValue(lightMode.blue, darkMode.orange)
+  const neutrals = (l, d) => {
+    return useColorModeValue(lightMode.neutrals[l], darkMode.neutrals[d])
+  }
+
   const { hasCopied, onCopy } = useClipboard('vietenandreas+pf@gmail.com');
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -83,7 +92,7 @@ export default function ContactFormWithSocialButtons() {
   return (
     
     <>
-      <Box p={{ base:'2rem 4rem' , md: '4rem 8rem'}}>
+      <Box p={{ base:'2rem 4rem' , md: '4rem 8rem'}} bg={neutrals(2,2)}>
         <Box>
           <VStack spacing={{ base: 4, md: 8, lg: 20 }}>
             <PageHeading page={'contact'} />
@@ -106,7 +115,7 @@ export default function ContactFormWithSocialButtons() {
                     fontSize="3xl"
                     icon={<MdEmail />}
                     _hover={{
-                      bg: 'orange.500',
+                      bg: colorAccent,
                       color: useColorModeValue('white', 'gray.700'),
                     }}
                     onClick={onCopy}
@@ -122,7 +131,7 @@ export default function ContactFormWithSocialButtons() {
                     fontSize="3xl"
                     icon={<BsGithub />}
                     _hover={{
-                      bg: 'orange.500',
+                      bg: colorAccent,
                       color: useColorModeValue('white', 'gray.700'),
                     }}
                     isRound
@@ -136,7 +145,7 @@ export default function ContactFormWithSocialButtons() {
                     size="lg"
                     icon={<BsTwitter size="28px" />}
                     _hover={{
-                      bg: 'orange.500',
+                      bg: colorAccent,
                       color: useColorModeValue('white', 'gray.700'),
                     }}
                     isRound
@@ -150,7 +159,7 @@ export default function ContactFormWithSocialButtons() {
                     size="lg"
                     icon={<BsLinkedin size="28px" />}
                     _hover={{
-                      bg: 'orange.500',
+                      bg: colorAccent,
                       color: useColorModeValue('white', 'gray.700'),
                     }}
                     isRound
@@ -159,18 +168,18 @@ export default function ContactFormWithSocialButtons() {
               </Stack>
 
               <Box
-                bg={useColorModeValue('gray.200', 'gray.700')}
+                bg={neutrals(0,1)}
                 borderRadius="lg"
                 p={8}
-                color={useColorModeValue('gray.700', 'whiteAlpha.900')}
+                color={neutrals(8,8)}
                 shadow="base">
-                <Text fontSize='2xl' color={'#f79412'} as='kbd' >
+                <Text fontSize='2xl' color={colorAccent} as='kbd' >
                   {'{' }
                   <br />   
                 </Text>
                 <VStack spacing={5} mt={'10px'}>
                   <FormControl pl={'1rem'} isRequired>
-                    <FormLabel  as={'kbd'} color={'#f79412'}>name:</FormLabel>
+                    <FormLabel  as={'kbd'} color={colorAccent}>name:</FormLabel>
 
                     <InputGroup >
                       <InputLeftElement children={<BsPerson />} />
@@ -179,7 +188,7 @@ export default function ContactFormWithSocialButtons() {
                   </FormControl>
 
                   <FormControl pl={'1rem'} isRequired>
-                    <FormLabel  as={'kbd'} color={'#f79412'}>email:</FormLabel>
+                    <FormLabel  as={'kbd'} color={colorAccent}>email:</FormLabel>
 
                     <InputGroup>
                       <InputLeftElement children={<MdOutlineEmail />} />
@@ -194,7 +203,7 @@ export default function ContactFormWithSocialButtons() {
                   </FormControl>
 
                   <FormControl pl={'1rem'} isRequired>
-                    <FormLabel as={'kbd'} color={'#f79412'}>message:</FormLabel>
+                    <FormLabel as={'kbd'} color={colorAccent}>message:</FormLabel>
 
                     <Textarea
                       name="message"
@@ -206,16 +215,15 @@ export default function ContactFormWithSocialButtons() {
                     />
                     
                   </FormControl>
-                  <Text fontSize='2xl' color={'#f79412'} as='kbd' alignSelf={'start'}>
+                  <Text fontSize='2xl' color={colorAccent} as='kbd' alignSelf={'start'}>
                       {'}' }
                   </Text>
 
                   <Button
-                    colorScheme="blue"
-                    bg="blue.400"
+                    bg={neutrals(8,3)}
                     color="white"
                     _hover={{
-                      bg: 'orange.500',
+                      bg: colorAccent,
                     }}
                     isfullwidth="true"
                     onClick={(e)=>{handleSubmit(e)}}>

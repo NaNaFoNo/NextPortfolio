@@ -16,12 +16,21 @@ import {
 
 import { contentBlog } from '../utils/content'
 import ProjectsDataService from '../utils/projects'
-import PageHeading from '../components/PageHeading';
+import PageHeading from '../components/PageHeading'
+import { colorSchemes } from '../utils/colors'
+
+const lightMode = colorSchemes.lightMode;
+const darkMode = colorSchemes.darkMode;
 
 
 export default function BlogPage({ blogs }) {
+  const colorAccent = useColorModeValue(lightMode.blue, darkMode.orange)
+  const neutrals = (l, d) => {
+    return useColorModeValue(lightMode.neutrals[l], darkMode.neutrals[d])
+  }
+  
   return (
-    <Container maxW={'7xl'} p="12">
+    <Box px={{ base:'8rem' , xl:'12rem'}} p="12" bg={neutrals(2,2)}>
       <PageHeading page={'blog'}/>
       {blogs?.slice(0, 1).map((blog) => (
         <LinkBox
@@ -133,7 +142,7 @@ export default function BlogPage({ blogs }) {
           </Text>
         ))}
       </VStack>
-    </Container>
+    </Box>
   );
 };
 
