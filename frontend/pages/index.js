@@ -51,7 +51,7 @@ export default function Home() {
       </GridItem>
 
       <GridItem colSpan={1} display='flex' flexDirection={'column'} justifyContent={'center'} area={'b'} m={'4rem'} >
-        <Heading mb={6}>
+        <Heading mb={6} size={'2xl'}>
             {contentHome.heading.map((heading, index) => (
             <>
               { heading.highlight ? (
@@ -65,29 +65,29 @@ export default function Home() {
         </Heading>
 
         <Box>
-          <Text fontSize='2xl' color={colorAccent} as='kbd'>
+          <Text fontSize='3xl' color={colorAccent} as='kbd'>
             {'{' }
             <br />    
           </Text>
           {contentHome.info.map((info, index) => (
-            <>
-              <Text color={colorAccent} as='kbd' ml={'1rem'}>
+            <Box key={index}>
+              <Text color={colorAccent} as='kbd' ml={'1rem'} >
                 {info.tag} 
                 <br />   
               </Text>
               <Text
                 ml={'2rem'}
                 fontWeight={info.transform === 'none' ? ('100'):('600')}
-                fontSize={info.transform === 'none' ? ('1rem'):('1.4rem')}
+                fontSize={info.transform === 'none' ? ('xl'):('2xl')}
                 textTransform={info.transform}
               >
                 {info.value}
               </Text>
               
-            </>
+            </Box>
           ))}
 
-          <Text fontSize='2xl' color={colorAccent} as='kbd'>
+          <Text fontSize='3xl' color={colorAccent} as='kbd'>
             {'}'}
             <br />  
           </Text>
