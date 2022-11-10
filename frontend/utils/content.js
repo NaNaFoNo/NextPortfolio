@@ -53,7 +53,7 @@ export const contentAbout = {
     Let's work to build a better tomorrow.",
   ],
   stats: [
-    { _id: 'stat1', number: '5+', description: 'years experience in the field of automotive engineerng' },
+    { _id: 'stat1', number: '5+', description: 'years experience in automotive engineerng' },
     { _id: 'stat2', number: '3', description: 'years experience in the energy sector' },
     { _id: 'stat3', number: '20', description: 'months focus on coding' },
     { _id: 'stat4', number: '18', description: 'months intense study of Bitcoin' },

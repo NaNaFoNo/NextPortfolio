@@ -68,7 +68,7 @@ const StatCard = ({ statData: { number, description }}) => {
               pos={'relative'}
               textTransform={'uppercase'}
               letterSpacing={'2px'}
-              fontSize={'1.2rem'}
+              fontSize={'xl'}
               as={'kbd'}
             >
               {description}
@@ -95,12 +95,11 @@ const TimelineCard =({ timeData: { name, start, end, source, description, link, 
             position={'absolute'}
             right= {'45px'}
             top= {'0'}
-            
           >
             <Badge
               p={'.2rem .6rem'}
               borderRadius={'15px'}
-              fontSize={'1rem'}
+              fontSize={'xl'}
               textTransform={'uppercase'}
               bg={neutrals(4,4)}
               fontWeight={'500'}
@@ -110,7 +109,7 @@ const TimelineCard =({ timeData: { name, start, end, source, description, link, 
           </Box>
         </Box>
         
-        <Box m={'2rem 2rem 0'}>
+        <Box m={'2rem 2rem 0'} fontSize='xl'>
           <Text fontSize='2xl' color={colorAccent} as='kbd'>
             {'{' }
             <br />    
@@ -121,12 +120,12 @@ const TimelineCard =({ timeData: { name, start, end, source, description, link, 
           <Text
             ml={'2rem'}
             fontWeight={'600'}
-            fontSize={'1.4rem'}
+            fontSize='2xl'
             textTransform={'uppercase'}
           >
             {name}
             <br />
-            <Box as={'span'}  >
+            <Box as={'span'} fontWeight={'400'} >
               - {source}
             </Box>
           </Text>
@@ -219,7 +218,7 @@ export default function about() {
           <GridItem>
             <Heading mb={4}>{contentAbout.subHeader}</Heading>
             { contentAbout.textParagraphs.map((paragraph, index) => (
-              <Text p={4} key={index}>
+              <Text p={4} key={index} fontSize={'xl'}>
                 {paragraph}
               </Text>
             ))}
