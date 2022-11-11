@@ -29,16 +29,15 @@ export default function Home() {
       width={'100%'}
       minHeight={'86vh'}
     >
-      <GridItem colSpan={1} pos={'relative'} display='flex' area={'a'}>
+      <GridItem colSpan={1} pos={'relative'} display={'flex'} area={'a'}>
         <Box 
-          h='100%' 
-          w='65%' 
-          pos={'absolute'} 
-          //zIndex={'-1'} 
+          h={'100%'} 
+          w={'65%'} 
+          pos={'absolute'}  
           bg={neutrals(6,4)}
           clipPath={'polygon(0 0, 46% 0, 79% 100%, 0% 100%)'}
-        />
-        <Container justifyContent='space-around' centerContent>
+        /> 
+        <Container justifyContent={'space-around'} centerContent>
           <Image
             zIndex={'1'} 
             src={contentHome.picture}
@@ -65,13 +64,13 @@ export default function Home() {
         </Heading>
 
         <Box>
-          <Text fontSize='3xl' color={colorAccent} as='kbd'>
+          <Text fontSize={'3xl'} color={colorAccent} as={'kbd'}>
             {'{' }
             <br />    
           </Text>
           {contentHome.info.map((info, index) => (
             <Box key={index}>
-              <Text color={colorAccent} as='kbd' ml={'1rem'} >
+              <Text color={colorAccent} as={'kbd'} ml={'1rem'} >
                 {info.tag} 
                 <br />   
               </Text>
@@ -87,7 +86,7 @@ export default function Home() {
             </Box>
           ))}
 
-          <Text fontSize='3xl' color={colorAccent} as='kbd'>
+          <Text fontSize={'3xl'} color={colorAccent} as={'kbd'}>
             {'}'}
             <br />  
           </Text>

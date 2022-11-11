@@ -24,7 +24,6 @@ const lightMode = colorSchemes.lightMode;
 const darkMode = colorSchemes.darkMode;
 
 
-
 const Card =({ children }) => {
   const neutrals = (l, d) => {
     return useColorModeValue(lightMode.neutrals[l], darkMode.neutrals[d])
@@ -109,18 +108,18 @@ const TimelineCard =({ timeData: { name, start, end, source, description, link, 
           </Box>
         </Box>
         
-        <Box m={'2rem 2rem 0'} fontSize='xl'>
-          <Text fontSize='2xl' color={colorAccent} as='kbd'>
+        <Box m={'2rem 2rem 0'} fontSize={'xl'}>
+          <Text fontSize={'2xl'} color={colorAccent} as={'kbd'}>
             {'{' }
             <br />    
           </Text>
-          <Text color={colorAccent} as='kbd' ml={'1rem'}>
+          <Text color={colorAccent} as={'kbd'} ml={'1rem'}>
             {'title:'}    
           </Text>
           <Text
             ml={'2rem'}
             fontWeight={'600'}
-            fontSize='2xl'
+            fontSize={'2xl'}
             textTransform={'uppercase'}
           >
             {name}
@@ -129,7 +128,7 @@ const TimelineCard =({ timeData: { name, start, end, source, description, link, 
               - {source}
             </Box>
           </Text>
-          <Text  color={colorAccent} as='kbd' ml={'1rem'}>
+          <Text  color={colorAccent} as={'kbd'} ml={'1rem'}>
             {'info:'}    
           </Text>
           <Box as='p' ml={'2rem'}>
@@ -140,7 +139,7 @@ const TimelineCard =({ timeData: { name, start, end, source, description, link, 
               </Link>
             }
           </Box>
-          <Text fontSize='2xl' color={colorAccent} as='kbd'>
+          <Text fontSize={'2xl'} color={colorAccent} as={'kbd'}>
             {'}'}    
           </Text>
         </Box>
@@ -251,10 +250,6 @@ export default function about() {
           )}
         </Grid>
       </Box>
-
-      
-      
     </>
-    
   )
 }
