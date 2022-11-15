@@ -8,6 +8,8 @@ import {
   Text,
   Stack,
   useColorModeValue,
+  useDisclosure,
+  Collapse,
   Icon,
   IconButton,
   Link
@@ -25,9 +27,10 @@ const darkMode = colorSchemes.darkMode;
 
 
 const ProjectCard = ({ projectData: { name, description, image_url, topics, git_url, homepage_url, languages, created, updated, category }}) => {
+  const { isOpen, onToggle } = useDisclosure()
   const colorAccent = useColorModeValue(lightMode.blue, darkMode.orange)
   const neutrals = (l, d) => {
-    return useColorModeValue(lightMode.neutrals[l], darkMode.neutrals[d])
+    return (1)
   }
 
   let categoryIcon 
@@ -47,7 +50,7 @@ const ProjectCard = ({ projectData: { name, description, image_url, topics, git_
       <Box
         maxW={'445px'}
         w={'full'}
-        bg={neutrals(1,1)}
+        bg={useColorModeValue(lightMode.neutrals[1], darkMode.neutrals[1])}
         boxShadow={'dark-lg'}
         rounded={'md'}
         p={6}
@@ -112,22 +115,24 @@ const ProjectCard = ({ projectData: { name, description, image_url, topics, git_
             layout={'fill'}
             objectFit={'cover'}
             priority={true}
+            alt={'ProjectImage'}
+            onClick={onToggle}
           />
         </Box>
-        <Stack>
+        <Stack onClick={onToggle}>
           <Heading
-            color={neutrals(8,8)}
+            color={useColorModeValue(lightMode.neutrals[8], darkMode.neutrals[8])}
             fontSize={'2xl'}
             fontFamily={'body'}>
             {name.replace(/([A-Z])/g, ' $1').trim()}
           </Heading>
-          <Text color={neutrals(7,7)}>
+          <Text color={useColorModeValue(lightMode.neutrals[7], darkMode.neutrals[7])}>
             {description}
           </Text>
         </Stack>
-
-        <ProjectData projectData={{topics, languages, created, updated}}/>
-        
+        <Collapse in={isOpen} animateOpacity>           
+          <ProjectData projectData={{topics, languages, created, updated}}/>
+        </Collapse>
       </Box>
     </Center>      
   )
