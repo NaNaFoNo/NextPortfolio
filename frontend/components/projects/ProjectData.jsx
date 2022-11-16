@@ -29,10 +29,11 @@ const TopicIcon = ({ techName }) => {
   return (
     <>
       {iconData && (
-        <Flex flexDir={'column'} justifyContent={'center'} alignItems={'center'}>
+        <Flex flexDir={'column'} justifyContent={'center'} alignItems={'center'} key={iconData.key}>
           <Icon 
             as={iconData.icon} 
-            fill={ useColorModeValue(iconData.light, iconData.dark) } 
+            //fill={ useColorModeValue(iconData.light, iconData.dark) } 
+            fill={iconData.light} _dark={{ fill: iconData.dark }}
             boxSize="55" 
             viewBox="0 0 24 24" />
           <Badge mt={3} variant='subtle'>{techName}</Badge>
@@ -93,9 +94,6 @@ const ProjectData = ({ projectData: { topics, languages, created, updated }}) =>
   let dateCreated = new Date(created)
   let dateUpdated = new Date(updated)
   const colorAccent = useColorModeValue(lightMode.blue, darkMode.orange)
-  const neutrals = (l, d) => {
-    return useColorModeValue(lightMode.neutrals[l], darkMode.neutrals[d])
-  }
 
   return (
     <Tabs mt={4} colorScheme={useColorModeValue('blue', 'orange')} isFitted>

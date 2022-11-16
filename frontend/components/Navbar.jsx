@@ -89,7 +89,7 @@ const Navbar = () => {
           </Flex>
         </Box>
         {isOpen ? (
-          <Box pb={4} display={{ md: 'none' }}  bg={useColorModeValue(lightMode.neutrals[3], darkMode.neutrals[3])}>
+          <Box pb={4} display={{ md: 'none' }}  bg={lightMode.neutrals[3]} _dark={{bg: darkMode.neutrals[3] }}>
             <Stack as={'nav'} spacing={3} pt={3}>
               {pages.map((link) => (
                 <Link

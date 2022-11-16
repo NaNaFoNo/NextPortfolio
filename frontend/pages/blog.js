@@ -24,13 +24,9 @@ const darkMode = colorSchemes.darkMode;
 
 
 export default function BlogPage({ blogs }) {
-  const colorAccent = useColorModeValue(lightMode.blue, darkMode.orange)
-  const neutrals = (l, d) => {
-    return useColorModeValue(lightMode.neutrals[l], darkMode.neutrals[d])
-  }
-  
+
   return (
-    <Box px={{ base:'8rem' , xl:'12rem'}} p="12" bg={neutrals(2,2)}>
+    <Box px={{ base:'8rem' , xl:'12rem'}} p="12" bg={useColorModeValue(lightMode.neutrals[2], darkMode.neutrals[2])}>
       <PageHeading page={'blog'}/>
       {blogs?.slice(0, 1).map((blog) => (
         <LinkBox
@@ -70,10 +66,13 @@ export default function BlogPage({ blogs }) {
             </Box>
             <Box zIndex="1" width="100%" position="absolute" height="100%">
               <Box
-                bgGradient={useColorModeValue(
-                  'radial(orange.600 1px, transparent 1px)',
-                  'radial(orange.300 1px, transparent 1px)'
-                )}
+                //bgGradient={useColorModeValue(
+                //  'radial(orange.600 1px, transparent 1px)',
+                //  'radial(orange.300 1px, transparent 1px)'
+                //)}
+                bgGradient={'radial(orange.600 1px, transparent 1px)'} _dark={{ bgGradient: 'radial(orange.300 1px, transparent 1px)' }}
+                  
+          
                 backgroundSize="20px 20px"
                 opacity="0.4"
                 height="100%"
@@ -94,7 +93,7 @@ export default function BlogPage({ blogs }) {
             <Text
               as="p"
               marginTop="2"
-              color={useColorModeValue('gray.700', 'gray.200')}
+              color='gray.700' _dark={{ color: 'gray.200'}}
               fontSize="lg">
                 { blog.description }
             </Text>

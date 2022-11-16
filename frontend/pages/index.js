@@ -17,13 +17,10 @@ const darkMode = colorSchemes.darkMode;
 
 export default function Home() {
   const colorAccent = useColorModeValue(lightMode.blue, darkMode.orange)
-  const neutrals = (l, d) => {
-    return useColorModeValue(lightMode.neutrals[l], darkMode.neutrals[d])
-  }
-
+ 
   return (
     <Grid
-      bg={neutrals(2,2)}
+      bg={useColorModeValue(lightMode.neutrals[2], darkMode.neutrals[2])}
       templateAreas={[`"b""a"`, null, `"a b"`]}
       gridTemplateColumns={['1fr', null,'repeat(2, 1fr)']} 
       width={'100%'}
@@ -34,7 +31,7 @@ export default function Home() {
           h={'100%'} 
           w={'65%'} 
           pos={'absolute'}  
-          bg={neutrals(6,4)}
+          bg={useColorModeValue(lightMode.neutrals[6], darkMode.neutrals[4])}
           clipPath={'polygon(0 0, 46% 0, 79% 100%, 0% 100%)'}
         /> 
         <Container justifyContent={'space-around'} centerContent>
@@ -45,6 +42,7 @@ export default function Home() {
             w={'80%'}
             maxHeight={'80%'}
             borderRadius={'20px'}
+            alt={'IndexPicture'}
           />
         </Container>
       </GridItem>

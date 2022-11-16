@@ -25,14 +25,11 @@ const darkMode = colorSchemes.darkMode;
 
 
 const Card =({ children }) => {
-  const neutrals = (l, d) => {
-    return useColorModeValue(lightMode.neutrals[l], darkMode.neutrals[d])
-  }
 
   return (
     <>
       <Box
-        bg={neutrals(2,1)}
+        bg={useColorModeValue(lightMode.neutrals[2], darkMode.neutrals[1])}
         boxShadow={'dark-lg'}
         rounded={'md'}
         p={4}
@@ -81,9 +78,7 @@ const StatCard = ({ statData: { number, description }}) => {
 
 const TimelineCard =({ timeData: { name, start, end, source, description, link, rubric }}) => {
   const colorAccent = useColorModeValue(lightMode.blue, darkMode.orange)
-  const neutrals = (l, d) => {
-    return useColorModeValue(lightMode.neutrals[l], darkMode.neutrals[d])
-  }
+
 
   return (
     <>
@@ -181,7 +176,7 @@ const TimelineIcon = ({rubric}) => {
 }
 
 export default function about() {
-  const bgColor = useColorModeValue(lightMode.neutrals[2], darkMode.neutrals[2])
+  
   const stats = contentAbout.stats
   const timelineItems = contentAbout.timelineItems.sort((a, b) => {
     const date = new Date();
@@ -205,7 +200,7 @@ export default function about() {
     <>
       <Box 
         p={{ base:'2rem 4rem' , md: '4rem 8rem'}} 
-        bg={bgColor}>
+        bg={useColorModeValue(lightMode.neutrals[2], darkMode.neutrals[2])}>
         <PageHeading page={'about'}/>
         <Grid
           gridTemplateColumns={['1fr', null,'repeat(2, 1fr)']} 

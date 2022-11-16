@@ -54,9 +54,10 @@ const Auth0 = createIcon({
     <path fill="#EB5424" d="M21.98 7.448L19.62 0H4.347L2.02 7.448c-1.352 4.312.03 9.206 3.815 12.015L12.007 24l6.157-4.552c3.755-2.81 5.182-7.688 3.815-12.015l-6.16 4.58 2.343 7.45-6.157-4.597-6.158 4.58 2.358-7.433-6.188-4.55 7.63-.045L12.008 0l2.356 7.404 7.615.044z"/>,
     <title>Auth0</title>
   ],
+  key:'Auth0'
 })
 
-icons.push({name:'Auth0', icon: Auth0})
+icons.push({name:'Auth0', icon: Auth0, key:'Auth0'})
 
 
 //** ChakraUI */
@@ -69,7 +70,7 @@ const ChakraUI = createIcon({
   ],
 })
 
-icons.push({name:'ChakraUI', icon: ChakraUI})
+icons.push({name:'ChakraUI', icon: ChakraUI, key:'ChakraUI'})
 
 
 //** Clarinet */
@@ -82,7 +83,7 @@ const Clarinet = createIcon({
   ],
 })
 
-icons.push({name:'Clarinet', light:"black", dark: "white",icon: Clarinet})
+icons.push({name:'Clarinet', light:"black", dark: "white", icon: Clarinet, key:'Clarinet'})
 
 
 //** Clarity */
@@ -160,7 +161,7 @@ const Clarity = createIcon({
   ],
 })
 
-icons.push({name:'Clarity', light:"black", dark: "white",icon: Clarity})
+icons.push({name:'Clarity', light:"black", dark: "white", icon: Clarity, key:'Clarity'})
 
 
 //** CSS */
@@ -173,7 +174,7 @@ const CSS = createIcon({
   ],
 })
 
-icons.push({name:'CSS', icon: CSS, color:'#1572B6'})
+icons.push({name:'CSS', icon: CSS, color:'#1572B6', key:'CSS'})
 
 
 //** Express */
@@ -186,7 +187,7 @@ const Express = createIcon({
   ],
 })
 
-icons.push({name:'express', light:"black", dark: "white", icon: Express})
+icons.push({name:'express', light:"black", dark: "white", icon: Express, key:'express'})
 
 
 //** Flask */
@@ -199,7 +200,7 @@ const Flask = createIcon({
   ],
 })
 
-icons.push({name:'Flask', light:"black", dark: "white", icon: Flask})
+icons.push({name:'Flask', light:"black", dark: "white", icon: Flask, key:'Flask'})
 
 
 //** Ganache */
@@ -215,7 +216,7 @@ const Ganache = createIcon({
   ],
 })
 
-icons.push({name:'Ganache', icon: Ganache})
+icons.push({name:'Ganache', icon: Ganache, key:'Ganache'})
 
 
 //** HTML */
@@ -228,7 +229,7 @@ const HTML = createIcon({
   ],
 })
 
-icons.push({name:'HTML', icon: HTML, color:'#E34F26'})
+icons.push({name:'HTML', icon: HTML, color:'#E34F26', key:'HTML'})
 
 
 //** Javascript */
@@ -241,7 +242,7 @@ const Javascript = createIcon({
   ],
 })
 
-icons.push({name:'Javascript', icon: Javascript, color:'#F7DF1E'})
+icons.push({name:'Javascript', icon: Javascript, color:'#F7DF1E', key:'Javascript'})
 
 
 //** Jest */
@@ -254,7 +255,7 @@ const Jest = createIcon({
   ],
 })
 
-icons.push({name:'Jest', icon: Jest})
+icons.push({name:'Jest', icon: Jest, key:'Jest'})
 
 
 //** MongoDB */
@@ -267,7 +268,7 @@ const MongoDB = createIcon({
   ],
 })
 
-icons.push({name:'MongoDB', icon: MongoDB})
+icons.push({name:'MongoDB', icon: MongoDB, key:'MongoDB'})
 
 
 //** Nextjs */
@@ -280,7 +281,7 @@ const Nextjs = createIcon({
   ],
 })
 
-icons.push({name:'Nextjs', light:"black", dark: "white", icon: Nextjs})
+icons.push({name:'Nextjs', light:"black", dark: "white", icon: Nextjs, key:'Nextjs'})
 
 
 //** Nodejs */
@@ -293,7 +294,7 @@ const Nodejs = createIcon({
   ],
 })
 
-icons.push({name:'Nodejs', icon: Nodejs})
+icons.push({name:'Nodejs', icon: Nodejs, key:'Nodejs'})
 
 
 //** OpenSea */
@@ -306,7 +307,7 @@ const OpenSea = createIcon({
   ],
 })
 
-icons.push({name:'OpenSea', icon: OpenSea})
+icons.push({name:'OpenSea', icon: OpenSea, key:'OpenSea'})
 
 
 //** PostgreSQL */
@@ -319,7 +320,7 @@ const PostgreSQL = createIcon({
   ],
 })
 
-icons.push({name:'PostgreSQL', icon: PostgreSQL})
+icons.push({name:'PostgreSQL', icon: PostgreSQL, key:'PostgreSQL'})
 
 
 //** Python */
@@ -332,7 +333,7 @@ const Python = createIcon({
   ],
 })
 
-icons.push({name:'Python', icon: Python, color:'#3776AB'})
+icons.push({name:'Python', icon: Python, color:'#3776AB', key:'Python'})
 
 
 //** SCSS */
@@ -345,7 +346,7 @@ const SCSS = createIcon({
   ],
 })
 
-icons.push({name:'SCSS', icon: SCSS , color: '#CC6699'})
+icons.push({name:'SCSS', icon: SCSS , color: '#CC6699', key:'SCSS'})
 
 
 //** Solidity */
@@ -358,7 +359,7 @@ const Solidity = createIcon({
   ],
 })
 
-icons.push({name:'Solidity', light:"#363636", dark: "#c1c1c1", icon: Solidity})
+icons.push({name:'Solidity', light:"#363636", dark: "#c1c1c1", icon: Solidity, key:'Solidity'})
 
 
 //** Truffle */
@@ -376,7 +377,7 @@ const Truffle = createIcon({
   ],
 })
 
-icons.push({name:'Truffle', icon: Truffle})
+icons.push({name:'Truffle', icon: Truffle, key:'Truffle'})
 
 
 //** Web3js */
@@ -389,7 +390,7 @@ const Web3js = createIcon({
   ],
 })
 
-icons.push({name:'Web3js', icon: Web3js, color:'#F16822'})
+icons.push({name:'Web3js', icon: Web3js, color:'#F16822', key:'Web3js'})
 
 
 //** Webpack */
@@ -402,7 +403,7 @@ const Webpack = createIcon({
   ],
 })
 
-icons.push({name:'Webpack', icon: Webpack})
+icons.push({name:'Webpack', icon: Webpack, key:'Webpack'})
 
 
 //** Zokrates */
@@ -551,7 +552,7 @@ const Zokrates = createIcon({
   ],
 })
 
-icons.push({name:'Zokrates', light:"black", dark: "white", icon: Zokrates})
+icons.push({name:'Zokrates', light:"black", dark: "white", icon: Zokrates, key:'Zokrates'})
 
 
 
