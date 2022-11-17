@@ -36,7 +36,10 @@ const Navbar = () => {
     const { colorMode, toggleColorMode } = useColorMode();
     const { isOpen, onOpen, onClose } = useDisclosure();
 
-    const pages =  contentNavbar.pages
+    const hoverColor1 = useColorModeValue(lightMode.neutrals[3], darkMode.neutrals[3]);
+    const hoverColor2 = useColorModeValue(lightMode.neutrals[5], darkMode.neutrals[5]);
+
+    const pages =  contentNavbar.pages;
 
     return (
       <>
@@ -70,7 +73,7 @@ const Navbar = () => {
                     rounded={'md'}
                     _hover={{
                       textDecoration: 'none',
-                      bg: useColorModeValue(lightMode.neutrals[3], darkMode.neutrals[3]),
+                      bg: hoverColor1,
                     }}
                     href={ link =='Home' ? '/' : link.toLowerCase() }>
                     {link}
@@ -99,7 +102,7 @@ const Navbar = () => {
                   rounded={'md'}
                   _hover={{
                     textDecoration: 'none',
-                    bg: useColorModeValue(lightMode.neutrals[5], darkMode.neutrals[5]),
+                    bg: hoverColor2,
                   }}
                   href={ link =='Home' ? '/' : link.toLowerCase() }>
                   {link}

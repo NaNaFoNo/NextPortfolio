@@ -28,10 +28,6 @@ export default function Home({ projects }) {
   const [projectStore, setProjectStore] = useState(projects)
   const [searchFilter, setSearchFilter] = useState({})
 
-  const colorAccent = useColorModeValue(lightMode.blue, darkMode.orange)
-  const neutrals = (l, d) => {
-    return useColorModeValue(lightMode.neutrals[l], darkMode.neutrals[d])
-  }
 
   const getFilters = (newFilter) => {
 
@@ -55,11 +51,11 @@ export default function Home({ projects }) {
       })
     )}
     setProjectStore(filteredProjects)
-  }, [searchFilter])
+  }, [searchFilter, projects])
   
   
   return (
-    <Box px={{ base:'8rem' , xl:'12rem'}} p="12" bg={neutrals(2,2)}>
+    <Box px={{ base:'8rem' , xl:'12rem'}} p="12" bg={useColorModeValue(lightMode.neutrals[2], darkMode.neutrals[2])}>
       <PageHeading page={'projects'}/>
       <Flex
           cursor="pointer"

@@ -35,9 +35,6 @@ const darkMode = colorSchemes.darkMode;
 
 export default function ContactFormWithSocialButtons() {
   const colorAccent = useColorModeValue(lightMode.blue, darkMode.orange)
-  const neutrals = (l, d) => {
-    return useColorModeValue(lightMode.neutrals[l], darkMode.neutrals[d])
-  }
 
   const { hasCopied, onCopy } = useClipboard('vietenandreas+pf@gmail.com');
   const [name, setName] = useState('')
@@ -92,7 +89,7 @@ export default function ContactFormWithSocialButtons() {
   return (
     
     <>
-      <Box p={{ base:'2rem 4rem' , md: '4rem 8rem'}} bg={neutrals(2,2)}>
+      <Box p={{ base:'2rem 4rem' , md: '4rem 8rem'}} bg={useColorModeValue(lightMode.neutrals[2], darkMode.neutrals[2])}>
         <Box>
           <VStack spacing={{ base: 4, md: 8, lg: 20 }}>
             <PageHeading page={'contact'} />
@@ -168,10 +165,10 @@ export default function ContactFormWithSocialButtons() {
               </Stack>
 
               <Box
-                bg={neutrals(0,1)}
+                bg={useColorModeValue(lightMode.neutrals[0], darkMode.neutrals[1])}
                 borderRadius="lg"
                 p={8}
-                color={neutrals(8,8)}
+                color={useColorModeValue(lightMode.neutrals[8], darkMode.neutrals[8])}
                 shadow="base">
                 <Text fontSize='2xl' color={colorAccent} as='kbd' >
                   {'{' }
@@ -182,7 +179,9 @@ export default function ContactFormWithSocialButtons() {
                     <FormLabel  as={'kbd'} color={colorAccent}>name:</FormLabel>
 
                     <InputGroup >
-                      <InputLeftElement children={<BsPerson />} />
+                      <InputLeftElement >
+                        <BsPerson />
+                      </InputLeftElement>
                       <Input type="text" name="name" value={name} placeholder="Your Name" onChange={(e)=>{setName(e.target.value)}}/>
                     </InputGroup>
                   </FormControl>
@@ -191,7 +190,9 @@ export default function ContactFormWithSocialButtons() {
                     <FormLabel  as={'kbd'} color={colorAccent}>email:</FormLabel>
 
                     <InputGroup>
-                      <InputLeftElement children={<MdOutlineEmail />} />
+                      <InputLeftElement >
+                        <MdOutlineEmail />
+                      </InputLeftElement>
                       <Input
                         type="email"
                         name="email"
@@ -220,7 +221,7 @@ export default function ContactFormWithSocialButtons() {
                   </Text>
 
                   <Button
-                    bg={neutrals(8,3)}
+                    bg={useColorModeValue(lightMode.neutrals[8], darkMode.neutrals[3])}
                     color="white"
                     _hover={{
                       bg: colorAccent,

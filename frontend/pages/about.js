@@ -175,9 +175,9 @@ const TimelineIcon = ({rubric}) => {
   )
 }
 
-export default function about() {
-  
+export default function About() {
   const stats = contentAbout.stats
+  const bgColor = useColorModeValue(lightMode.neutrals[2], darkMode.neutrals[2])
   const timelineItems = contentAbout.timelineItems.sort((a, b) => {
     const date = new Date();
     a = a.end.split("/");
@@ -200,7 +200,7 @@ export default function about() {
     <>
       <Box 
         p={{ base:'2rem 4rem' , md: '4rem 8rem'}} 
-        bg={useColorModeValue(lightMode.neutrals[2], darkMode.neutrals[2])}>
+        bg={bgColor}>
         <PageHeading page={'about'}/>
         <Grid
           gridTemplateColumns={['1fr', null,'repeat(2, 1fr)']} 
