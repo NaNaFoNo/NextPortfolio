@@ -95,7 +95,7 @@ const TimelineCard =({ timeData: { name, start, end, source, description, link, 
               borderRadius={'15px'}
               fontSize={'xl'}
               textTransform={'uppercase'}
-              bg={neutrals(4,4)}
+              bg={useColorModeValue(lightMode.neutrals[4], darkMode.neutrals[4])}
               fontWeight={'500'}
             >
               { start + ' - ' + end }

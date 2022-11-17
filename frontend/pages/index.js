@@ -50,17 +50,17 @@ export default function Home() {
       <GridItem colSpan={1} display='flex' flexDirection={'column'} justifyContent={'center'} area={'b'} m={'4rem'} >
         <Heading mb={6} size={'2xl'}>
             {contentHome.heading.map((heading, index) => (
-            <>
+            <Box key={index}>
               { heading.highlight ? (
-                <span style={ {color: colorAccent} } key={index}>{heading.text}</span> 
+                <span style={ {color: colorAccent} }>{heading.text}</span> 
               ) : (
-                <span key={index}>{heading.text}</span>
+                <span>{heading.text}</span>
               )}
               { heading.br && (<br />)}
-            </>
+            </ Box>
           ))}
         </Heading>
-
+      
         <Box>
           <Text fontSize={'3xl'} color={colorAccent} as={'kbd'}>
             {'{' }
