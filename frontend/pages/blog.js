@@ -28,6 +28,14 @@ export default function BlogPage({ blogs }) {
   return (
     <Box px={{ base:'8rem' , xl:'12rem'}} p="12" bg={useColorModeValue(lightMode.neutrals[2], darkMode.neutrals[2])}>
       <PageHeading page={'blog'}/>
+      <VStack paddingTop="40px" spacing="2" alignItems="flex-start">
+        <Heading as="h2" mt="5">About this Blog</Heading>
+        { contentBlog.blogDescription.map((p, index) => (
+          <Text as="p" fontSize="lg" key={index}>
+            {p}
+          </Text>
+        ))}
+      </VStack>
       {blogs?.slice(0, 1).map((blog) => (
         <LinkBox
           marginTop={{ base: '1', sm: '5' }}
@@ -133,14 +141,7 @@ export default function BlogPage({ blogs }) {
           </WrapItem>
         ))}
       </Wrap>
-      <VStack paddingTop="40px" spacing="2" alignItems="flex-start">
-        <Heading as="h2" mt="5">About this Blog</Heading>
-        { contentBlog.blogDescription.map((p, index) => (
-          <Text as="p" fontSize="lg" key={index}>
-            {p}
-          </Text>
-        ))}
-      </VStack>
+      
     </Box>
   );
 };

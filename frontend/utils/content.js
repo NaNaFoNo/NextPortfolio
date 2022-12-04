@@ -41,16 +41,16 @@ export const contentHome = {
 export const contentAbout = {
   subHeader: 'My Summary',
   textParagraphs: [
-    "As an expert on high-voltage vehicles, I'm currently working on the edge of \
-    technology in automotive engineering. By continuously learning and discovering \
-    new stuff I had my first contact with Bitcoin. The transformation of truth. \
-    This was the spark that was needed to give me the conviction to adjust my roadmap. \
-    This new technology will transform the world and I want to be part of this creative \
-    disruption.",
-    "My passion for code should not just be a hobby. I began to dive deeper into some \
-    courses and started new habits. Building fundamental knowledge led me to graduate \
-    the Blockchain Developer Nanodegree at Udacity. But the journey has only just begun. \
-    Let's work to build a better tomorrow.",
+    "As an automotive engineer, I am constantly striving to advance the state of the art in my field. \
+    But my passion for technology extends far beyond the world of cars.",
+    "I have also become deeply interested in the potential of Bitcoin to revolutionize our financial system and create a better future for all people.\
+    Bitcoin is more than just money. It is a limited, digital commodity that cannot be easily reproduced, similar to gold. \
+    It enables peer-to-peer payments without the need for a third party, similar to cash. And it can be sent in the digital space in seconds, similar to Visa or PayPal.",
+    "Learning about Bitcoin and its potential is a lifelong journey, and I am dedicated to continuing to learn and discover new things. \
+    Good, stable money can positively change the world. \
+    It reduces unnecessary consumption and exploitation of our planet, \
+    prevents the possibility of war financing through money creation out of thin air, and shrinks the gap between the rich and the poor through inflationary currencies.\
+    That is why I am committed to driving adoption of Bitcoin and working towards a better future for all. Join me on this journey and let's build a better tomorrow together.",
   ],
   stats: [
     { _id: 'stat1', number: '5+', description: 'years experience in automotive engineerng' },
@@ -148,19 +148,11 @@ export const contentAbout = {
 export const contentBlog = {
   title: 'NaNaFo-Blog',
   blogDescription: [
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
-    Sed finibus ex ac vehicula fermentum. Duis tempor dui laoreet \
-    elementum varius. Proin fermentum quam in elit sollicitudin, \
-    in ultrices neque dapibus. Pellentesque habitant morbi tristique \
-    senectus et netus et malesuada fames ac turpis egestas. Phasellus \
-    fringilla nunc vel urna suscipit, nec laoreet enim volutpat. Integer \
-    feugiat sapien dui, a accumsan nulla.',
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
-    Sed finibus ex ac vehicula fermentum. Duis tempor dui laoreet \
-    elementum varius. Proin fermentum quam in elit sollicitudin, \
-    in ultrices neque dapibus. Pellentesque habitant morbi tristique \
-    senectus et netus et malesuada fames ac turpis egestas. Phasellus \
-    fringilla nunc vel urna suscipit, nec laoreet enim volutpat. Integer \
-    feugiat sapien dui, a accumsan nulla.',
+    'Welcome to my blog! Here, I want to share with you my passion for Bitcoin and my journey into the fascinating world of this new monetary system. \
+    Through my personal experiences and reflections, I hope to inspire and motivate others to explore this exciting technology and discover its limitless potential.',
+    "As we explore the world of Bitcoin together, I will share my experiences with this technology and the latest developments. \
+    I'm also interested in related topics such as web development, education, AI, and lifelong learning. \
+    While I am not certain what specific content I will publish over time, I am excited to explore these topics and share my thoughts and experiences with you. \
+    Join me on this exciting journey as we explore the world of Bitcoin and more to improve ourselves and reach our full potential.",
   ]
 } 
